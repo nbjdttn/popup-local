@@ -2,7 +2,7 @@
 // Everything from the feed is inserted with textContent, never as HTML.
 
 (function () {
-  const NEW_FOR_MS = 3 * 24 * 60 * 60 * 1000; // items count as NEW for 3 days
+  const NEW_FOR_MS = 3 * 24 * 60 * 60 * 1000; // items are marked 新 for 3 days
 
   const state = { feed: null, kind: 'popup', category: null, starOnly: false };
 
@@ -26,11 +26,11 @@
 
   function timeAgo(iso) {
     const mins = Math.round((Date.now() - new Date(iso).getTime()) / 60000);
-    if (mins < 1) return 'just now';
-    if (mins < 60) return `${mins} min ago`;
+    if (mins < 1) return '刚刚';
+    if (mins < 60) return `${mins} 分钟前`;
     const hrs = Math.round(mins / 60);
-    if (hrs < 24) return `${hrs} h ago`;
-    return `${Math.round(hrs / 24)} d ago`;
+    if (hrs < 24) return `${hrs} 小时前`;
+    return `${Math.round(hrs / 24)} 天前`;
   }
 
   function host(url) {
@@ -64,7 +64,7 @@
       btn.className = 'chip';
       btn.type = 'button';
       btn.setAttribute('aria-pressed', String(c.name === state.category));
-      btn.append(c.name);
+      btn.append(c.zh || c.name);
       const n = itemsFor(state.kind, c.name).length;
       if (n) {
         const count = document.createElement('span');
@@ -116,7 +116,7 @@
     list.replaceChildren();
     if (!state.feed?.updatedAt) {
       list.append(
-        empty('No results yet', 'The agent hasn’t run yet. Results appear here after its first update.'),
+        empty('还没有内容', 'AI 助手还没有运行过，第一次更新后这里会显示结果。'),
       );
       return;
     }
@@ -124,15 +124,15 @@
     if (entry?.error) {
       const p = document.createElement('p');
       p.className = 'warn';
-      p.textContent = 'The latest search for this category failed; showing earlier results.';
+      p.textContent = '这个分类最近一次搜索失败了，下面显示的是之前的结果。';
       list.append(p);
     }
     const items = itemsFor(state.kind, state.category);
     if (!items.length) {
       list.append(
         empty(
-          state.starOnly ? 'No stand-out items here' : 'Nothing found right now',
-          'The agent checks again at its next update.',
+          state.starOnly ? '这里暂时没有精选内容' : '暂时没有找到',
+          'AI 助手下次更新时会再找一遍。',
         ),
       );
       return;
@@ -176,16 +176,15 @@
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(r.status))))
       .then((feed) => {
         state.feed = feed;
-        $('city').textContent = feed.city || 'Manchester';
-        $('updated').textContent = feed.updatedAt ? `updated ${timeAgo(feed.updatedAt)}` : 'not updated yet';
+        $('updated').textContent = feed.updatedAt ? `${timeAgo(feed.updatedAt)}更新` : '尚未更新';
         const names = categories().map((c) => c.name);
         const saved = store.get('category');
         state.category = names.includes(saved) ? saved : names[0] ?? null;
         render();
       })
       .catch(() => {
-        $('updated').textContent = 'could not load';
-        $('list').replaceChildren(empty('Couldn’t load results', 'Please refresh the page.'));
+        $('updated').textContent = '加载失败';
+        $('list').replaceChildren(empty('加载失败', '请刷新页面再试。'));
       });
 
     render();

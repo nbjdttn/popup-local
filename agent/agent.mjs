@@ -41,27 +41,28 @@ const REPORT_TOOL = {
             'interesting',
           ],
           properties: {
-            title: { type: 'string', description: 'Short headline for the pop-up or deal.' },
-            brand: { type: 'string', description: 'Brand, shop or organiser.' },
-            summary: { type: 'string', description: 'One or two sentences on what it is.' },
+            title: { type: 'string', description: 'Short headline in Simplified Chinese.' },
+            brand: { type: 'string', description: 'Brand, shop or organiser, as Chinese readers know it, e.g. "泡泡玛特 Pop Mart".' },
+            summary: { type: 'string', description: 'One or two sentences in Simplified Chinese.' },
             location: {
               type: 'string',
-              description: 'Address, venue or area in Manchester. Empty string if online only.',
+              description:
+                'Venue or area in Manchester, in Chinese with the English name for navigation, e.g. "阿戴尔购物中心 Arndale". Empty string if online only.',
             },
             dates: {
               type: 'string',
-              description: 'When it runs, e.g. "1-15 Nov 2026" or "Ends 3 Nov". Empty if unknown.',
+              description: 'When it runs, in Chinese, e.g. "11月1日–15日" or "11月3日截止". Empty if unknown.',
             },
             offer: {
               type: 'string',
-              description: 'Discount wording, e.g. "20% off". Empty string for pop-ups with no deal.',
+              description: 'Discount in Chinese, e.g. "八折" or "买一送一". Empty string for pop-ups with no deal.',
             },
             url: { type: 'string', description: 'Source page URL taken from the search results.' },
             source: {
               type: 'string',
               description:
-                'Where it was found, e.g. "Xiaohongshu", "Weibo", "WeChat", "Dianping", "Instagram", ' +
-                '"Manchester Evening News", "Brand site".',
+                'Where it was found, in Chinese, e.g. "小红书", "微博", "微信公众号", "大众点评", "Instagram", ' +
+                '"曼彻斯特晚报", "品牌官网".',
             },
             interesting: {
               type: 'boolean',
@@ -102,7 +103,8 @@ export function buildPrompt(kind, category, today = new Date()) {
     '- Only include things in Manchester that are running now or start within the next 30 days. Skip anything that has ended or is in another city.',
     '- Every item needs a real source URL from your search results. Do not invent details; leave a field empty if unknown.',
     `- Return at most ${MAX_FINDINGS} items, most interesting first. Remove duplicates.`,
-    '- Write in English. If the source is Chinese, put the original Chinese title in brackets after the English title.',
+    '- Write every field in Simplified Chinese (简体中文), even when the source is in English. Keep brand names recognisable and',
+    '  give English place names next to the Chinese so people can find them on a map.',
     '- When you are done, call the report_findings tool once with the list.',
   ]
     .filter((line, i, all) => line !== '' || (all[i - 1] ?? '') !== '')

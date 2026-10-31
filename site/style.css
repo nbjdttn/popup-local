@@ -39,8 +39,8 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font: 16px/1.45 system-ui, -apple-system, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB',
-    'Microsoft YaHei', sans-serif;
+  font: 16px/1.5 system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
+    'Noto Sans SC', 'Segoe UI', Roboto, sans-serif;
   max-width: 720px;
   margin-inline: auto;
   padding-bottom: env(safe-area-inset-bottom);
@@ -58,7 +58,6 @@ h1 {
   margin: 0;
   font-size: 26px;
   font-weight: 800;
-  letter-spacing: -0.02em;
 }
 
 .sub {
@@ -114,12 +113,6 @@ h1 {
   border-color: var(--accent);
   background: var(--accent);
   color: var(--on-accent);
-}
-
-.zh {
-  font-weight: 500;
-  opacity: 0.8;
-  margin-left: 2px;
 }
 
 .chips {
@@ -209,8 +202,6 @@ main {
 .brand {
   font-size: 12px;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
   color: var(--accent);
   white-space: nowrap;
   overflow: hidden;

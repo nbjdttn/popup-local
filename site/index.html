@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Popup Local · Manchester</title>
-    <meta name="description" content="New pop-ups and deals in Manchester, found by an AI agent. 曼彻斯特快闪和优惠。" />
+    <title>曼城快闪 · 曼彻斯特快闪与优惠</title>
+    <meta name="description" content="曼彻斯特最新快闪活动和优惠折扣，由 AI 助手每天搜索整理。" />
     <meta name="theme-color" content="#FFF8F3" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#17130F" media="(prefers-color-scheme: dark)" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎪</text></svg>" />
@@ -13,40 +13,39 @@
   <body>
     <header class="top">
       <div>
-        <h1>Popup Local</h1>
-        <p class="sub"><span id="city">Manchester</span> · <span id="updated">loading…</span></p>
+        <h1>曼城快闪</h1>
+        <p class="sub"><span id="city">曼彻斯特</span> · <span id="updated">加载中…</span></p>
       </div>
-      <label class="toggle" title="Only show stand-out items">
+      <label class="toggle" title="只看精选">
         <input type="checkbox" id="starOnly" />
-        <span>★ Stand-out</span>
+        <span>★ 只看精选</span>
       </label>
     </header>
 
     <nav class="tabs" role="tablist">
       <button role="tab" class="tab" data-kind="popup" aria-selected="true">
-        🎪 Pop-ups <span class="zh">快闪</span>
+        🎪 快闪活动
       </button>
       <button role="tab" class="tab" data-kind="deal" aria-selected="false">
-        🏷️ Deals <span class="zh">优惠</span>
+        🏷️ 优惠折扣
       </button>
     </nav>
 
-    <div class="chips" id="chips" role="toolbar" aria-label="Categories"></div>
+    <div class="chips" id="chips" role="toolbar" aria-label="分类"></div>
 
     <main id="list" aria-live="polite"></main>
 
     <footer class="foot">
-      Found by a Claude agent searching the web in English and Chinese (incl. public Xiaohongshu,
-      Weibo and WeChat posts). Always check the source before you go.
-      <a href="https://github.com/nbjdttn/popup-local">About</a>
+      内容由 Claude AI 助手每天早上用中英文搜索网络整理（包括公开的小红书、微博、微信公众号内容），可能有遗漏或过时信息，出发前请点开原文确认。
+      <a href="https://github.com/nbjdttn/popup-local">关于本站</a>
     </footer>
 
     <template id="card">
       <a class="card" target="_blank" rel="noopener noreferrer">
         <div class="card-head">
           <div class="tags">
-            <span class="new" hidden>NEW</span>
-            <span class="star" hidden title="Stand-out">★</span>
+            <span class="new" hidden>新</span>
+            <span class="star" hidden title="精选">★</span>
             <span class="brand"></span>
           </div>
           <span class="offer" hidden></span>

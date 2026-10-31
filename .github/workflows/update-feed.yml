@@ -5,8 +5,8 @@ name: Update feed
 
 on:
   schedule:
-    # Twice a day, around 7am and 5pm UK time (times are UTC).
-    - cron: '48 6,16 * * *'
+    # Once a day, around 8am UK time (07:49 UTC; 08:49 during British Summer Time).
+    - cron: '49 7 * * *'
   # "Run workflow" button on the Actions tab.
   workflow_dispatch:
     inputs:
@@ -78,7 +78,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh issue create \
-            --title "New in Manchester: $(date -u +'%d %b %Y %H:%M') UTC" \
+            --title "曼彻斯特新发现：$(TZ=Europe/London date +'%Y年%-m月%-d日 %H:%M')" \
             --body-file notify.md
 
       - uses: actions/configure-pages@v5

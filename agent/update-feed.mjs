@@ -92,14 +92,14 @@ export function notifyMarkdown(notify, pageUrl) {
   for (const kind of KINDS) {
     const items = notify.filter((n) => n.kind === kind);
     if (!items.length) continue;
-    lines.push(`### ${kind === 'popup' ? 'Pop-ups 快闪' : 'Deals 优惠'}`, '');
+    lines.push(`### ${kind === 'popup' ? '快闪活动' : '优惠折扣'}`, '');
     for (const { category, f } of items) {
       const extra = [f.offer, f.dates, f.location].filter(Boolean).join(' · ');
-      lines.push(`- **${category.name}** — [${f.title}](${f.url})${extra ? ` — ${extra}` : ''}`);
+      lines.push(`- **${category.zh}** — [${f.title}](${f.url})${extra ? ` — ${extra}` : ''}`);
     }
     lines.push('');
   }
-  if (pageUrl) lines.push(`See everything on the page: ${pageUrl}`);
+  if (pageUrl) lines.push(`查看全部：${pageUrl}`);
   return lines.join('\n');
 }
 

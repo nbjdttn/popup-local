@@ -106,6 +106,10 @@ const prompt = buildPrompt('popup', CATEGORIES[0], now);
 assert.match(prompt, /Manchester/);
 assert.match(prompt, /小红书/);
 assert.match(prompt, /曼彻斯特 泡泡玛特/);
+assert.match(prompt, /Simplified Chinese/);
+assert.match(md, /### 快闪活动/);
+assert.match(md, /\*\*泡泡玛特\*\*/);
+assert.match(md, /查看全部/);
 
 console.log('PASS — request shape, pause_turn, merge, notifications, prompt');
 console.log('\nSample notification:\n' + md);
