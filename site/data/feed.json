@@ -1,6 +1,318 @@
 {
   "city": "Manchester",
-  "updatedAt": null,
-  "categories": [],
-  "feeds": { "popup": {}, "deal": {} }
+  "updatedAt": "2026-10-31T20:47:45.464Z",
+  "categories": [
+    {
+      "name": "Pop Mart",
+      "zh": "泡泡玛特",
+      "kinds": [
+        "popup",
+        "deal"
+      ]
+    },
+    {
+      "name": "Food",
+      "zh": "美食",
+      "kinds": [
+        "popup",
+        "deal"
+      ]
+    },
+    {
+      "name": "Bubble tea & Coffee",
+      "zh": "奶茶咖啡",
+      "kinds": [
+        "popup",
+        "deal"
+      ]
+    },
+    {
+      "name": "Supermarket finds",
+      "zh": "超市好物",
+      "kinds": [
+        "deal"
+      ]
+    },
+    {
+      "name": "Beauty",
+      "zh": "美妆",
+      "kinds": [
+        "popup",
+        "deal"
+      ]
+    },
+    {
+      "name": "Fashion",
+      "zh": "时尚服饰",
+      "kinds": [
+        "popup",
+        "deal"
+      ]
+    },
+    {
+      "name": "Toys & Collectibles",
+      "zh": "潮玩手办",
+      "kinds": [
+        "popup",
+        "deal"
+      ]
+    }
+  ],
+  "feeds": {
+    "popup": {
+      "Pop Mart": {
+        "fetchedAt": "2026-10-31T20:47:45.464Z",
+        "findings": []
+      },
+      "Food": {
+        "fetchedAt": "2026-10-31T20:47:45.464Z",
+        "findings": [
+          {
+            "title": "Counter Manchester 11月9日开业",
+            "brand": "Counter Manchester（Open Restaurant Group / 主厨 Andrew Sheridan）",
+            "summary": "Open Restaurant Group在曼城市中心的第一家店，由主厨Andrew Sheridan掌勺，共60个座位，11月9日（周一）中午12点开业。开业菜单有牛肉塔塔压制可颂，还有以Vimto为灵感的曼城特色甜品。",
+            "location": "市中心 Island Building，约翰道尔顿街 John Dalton Street（M2 6FW，近 Deansgate）",
+            "dates": "11月9日（周一）12:00开业",
+            "offer": "",
+            "url": "https://www.insidermedia.com/news/north-west/counter-manchester-set-to-launch-next-month-will-be-open-restaurants-first-manchester-city-centre-opening",
+            "source": "Insider Media / The Caterer / Hospitality & Catering News",
+            "interesting": true,
+            "firstSeen": "2026-10-31T20:47:45.464Z"
+          },
+          {
+            "title": "北欧餐厅OSMA将在北区重新开业",
+            "brand": "OSMA（附设北欧杂货店 Boutikk）",
+            "summary": "米其林推荐的挪威风味餐厅OSMA原来在Prestwich，关店后将搬到北区重新开业，隔壁还有同一家开的北欧杂货店Boutikk。Good Food Guide把它放在2026年11月的开业名单里，但具体开业日期还没公布。",
+            "location": "北区 Northern Quarter，One Port Street（80 Port Street, M1 2FZ）",
+            "dates": "2026年秋季（列在11月开业名单，具体日期待定）",
+            "offer": "",
+            "url": "https://www.thegoodfoodguide.co.uk/editorial/news/new-restaurant-openings-in-2026",
+            "source": "The Good Food Guide",
+            "interesting": true,
+            "firstSeen": "2026-10-31T20:47:45.464Z"
+          }
+        ]
+      },
+      "Bubble tea & Coffee": {
+        "fetchedAt": "2026-10-31T20:47:45.464Z",
+        "findings": [
+          {
+            "title": "曼彻斯特咖啡节 2026（Manchester Coffee Festival）",
+            "brand": "Manchester Coffee Festival 曼彻斯特咖啡节",
+            "summary": "英格兰北部最大的精品咖啡活动，有本地和全国参展品牌、免费试饮小样、拉花比赛、杯测、互动工作坊，还有新增的品牌演示和互动舞台。周五场只对业内人士开放，需在 manchestercoffeefest.com 购票。",
+            "location": "鲍勒斯会展中心 Bowlers Exhibition Centre, Trafford Park, M17 1SN（近特拉福德中心 Trafford Centre）",
+            "dates": "11月20日–22日",
+            "offer": "",
+            "url": "https://www.visitmanchester.com/event/manchester-coffee-festival-2026/102630101/",
+            "source": "Visit Manchester 官方旅游网站",
+            "interesting": false,
+            "firstSeen": "2026-10-31T20:47:45.464Z"
+          }
+        ]
+      },
+      "Beauty": {
+        "fetchedAt": "2026-10-31T20:47:45.464Z",
+        "findings": [
+          {
+            "title": "Palmer's 香草梦幻餐厅快闪回归特拉福德中心",
+            "brand": "Palmer's 帕玛氏",
+            "summary": "Palmer's 在特拉福德中心开了一家美式餐厅主题的万圣节快闪店，主推 Tahitian Vanilla 香草身体和头发护理系列，可以现场试闻、试用。报道发布于10月27日，没写结束日期，可能万圣节后就撤，想去最好尽快。",
+            "location": "特拉福德中心 Trafford Centre",
+            "dates": "10月27日报道，结束日期不明",
+            "offer": "现场免费试用",
+            "url": "https://www.trendhunter.com/trends/halloween-beauty-pop-ups",
+            "source": "Trend Hunter",
+            "interesting": true,
+            "firstSeen": "2026-10-31T20:47:45.464Z"
+          },
+          {
+            "title": "Oriflame 圣诞美妆沉浸式快闪（特拉福德中心）",
+            "brand": "Oriflame 欧瑞莲",
+            "summary": "瑞典美妆品牌 Oriflame 在特拉福德中心办圣诞主题快闪，有互动美妆区和独家产品展示。官方页面只写了11月14日–16日，没写年份，去之前请再确认一下今年是否举办。",
+            "location": "特拉福德中心 Trafford Centre",
+            "dates": "11月14日–16日（年份待确认）",
+            "offer": "",
+            "url": "https://www.visitmanchester.com/event/oriflame-festive-beauty-pop-up/107351101/",
+            "source": "Visit Manchester 官网",
+            "interesting": true,
+            "firstSeen": "2026-10-31T20:47:45.464Z"
+          },
+          {
+            "title": "美甲工作坊 Paint & Press On",
+            "brand": "Paint & Press On",
+            "summary": "11月26日晚上6:30开始的穿戴甲/美甲手作活动，票价22英镑。",
+            "location": "70 Alexandra Rd, Manchester",
+            "dates": "11月26日",
+            "offer": "",
+            "url": "https://allevents.in/manchester/beauty",
+            "source": "Allevents",
+            "interesting": false,
+            "firstSeen": "2026-10-31T20:47:45.464Z"
+          }
+        ]
+      },
+      "Fashion": {
+        "fetchedAt": "2026-10-31T20:47:45.464Z",
+        "findings": [
+          {
+            "title": "Good Clothes Show 时尚市集 11月7–8日回归曼城",
+            "brand": "The Good Clothes Show",
+            "summary": "曼彻斯特中央会展中心将举办为期两天的时尚市集，有100多个摊位，卖独立设计品牌、二手和古着服饰，还有走秀、名人嘉宾、讲座和改造工作坊。需购票入场。",
+            "location": "曼彻斯特中央会展中心 Manchester Central（市中心 Petersfield）",
+            "dates": "11月7日（周六）10:00–18:00；11月8日（周日）11:00–17:00",
+            "offer": "",
+            "url": "https://www.manchestercentral.co.uk/events/good-clothes-show-2026",
+            "source": "品牌官网",
+            "interesting": true,
+            "firstSeen": "2026-10-31T20:47:45.464Z"
+          }
+        ]
+      },
+      "Toys & Collectibles": {
+        "fetchedAt": "2026-10-31T20:47:45.464Z",
+        "findings": []
+      }
+    },
+    "deal": {
+      "Pop Mart": {
+        "fetchedAt": "2026-10-31T20:47:45.464Z",
+        "findings": []
+      },
+      "Food": {
+        "fetchedAt": "2026-10-31T20:47:45.464Z",
+        "findings": []
+      },
+      "Bubble tea & Coffee": {
+        "fetchedAt": "2026-10-31T20:47:45.464Z",
+        "findings": [
+          {
+            "title": "Bubble CiTea 会员福利：集10章送一杯，生日五折",
+            "brand": "Bubble CiTea",
+            "summary": "免费注册会员（用英国手机号），在门店买饮品可集章，集满10个章可兑换一杯免费饮品（最高£5.20）；生日前7天会收到生日码，可享五折，最多减£5。自带可装约700ml的环保杯买大杯可减25p。这是长期会员规则，不是限时活动。",
+            "location": "曼城门店，如阿戴尔购物中心 Manchester Arndale",
+            "dates": "长期有效（品牌可随时修改）",
+            "offer": "集满10章送一杯；生日五折（最多减£5）；自带杯减25p",
+            "url": "https://bubblecitea.com/terms-and-conditions",
+            "source": "品牌官网",
+            "interesting": false,
+            "firstSeen": "2026-10-31T20:47:45.464Z"
+          }
+        ]
+      },
+      "Supermarket finds": {
+        "fetchedAt": "2026-10-31T20:47:45.464Z",
+        "findings": []
+      },
+      "Beauty": {
+        "fetchedAt": "2026-10-31T20:47:45.464Z",
+        "findings": [
+          {
+            "title": "Bperfect 阿戴尔旗舰店免费彩妆活动 Makeup and Mayhem",
+            "brand": "Bperfect Cosmetics",
+            "summary": "Bperfect 曼城旗舰店办的彩妆晚间活动，主持人 Bella B Campbell 现场一步步教变装（drag）妆容，提供茶点。门票免费，但到场需要消费满 £30。",
+            "location": "阿戴尔购物中心 Bperfect 旗舰店 Bperfect Megastore, Manchester Arndale",
+            "dates": "11月22日（周日）16:00–19:00",
+            "offer": "免费入场（需消费满 £30）",
+            "url": "https://allevents.in/manchester/makeup-and-mayhem/100002003857735429",
+            "source": "Allevents 活动网站",
+            "interesting": false,
+            "firstSeen": "2026-10-31T20:47:45.464Z"
+          },
+          {
+            "title": "Skinfluence × Pure Align 普拉提+护肤活动，送专属优惠券",
+            "brand": "Skinfluence Dermaesthetics × Pure Align Studio",
+            "summary": "普拉提加护肤的体验活动，有护肤环节、抹茶，还会发专属优惠券（exclusive vouchers）。门票 £33。",
+            "location": "Pure Align Studios（曼彻斯特）",
+            "dates": "11月7日（周六）12:00",
+            "offer": "门票 £33，含专属优惠券",
+            "url": "https://allevents.in/manchester/skinfluence-dermaesthetics-x-pure-align-studio/100002003909191335",
+            "source": "Allevents 活动网站",
+            "interesting": false,
+            "firstSeen": "2026-10-31T20:47:45.464Z"
+          }
+        ]
+      },
+      "Fashion": {
+        "fetchedAt": "2026-10-31T20:47:45.464Z",
+        "findings": [
+          {
+            "title": "Blue Rinse 古着清仓按公斤卖：每公斤£15",
+            "brand": "Blue Rinse Vintage",
+            "summary": "Blue Rinse 古着清仓 Kilo Sale，在 Sacha's 酒店举办，二手古着按重量计价，每公斤£15，适合淘便宜古着。",
+            "location": "曼彻斯特市中心 Britannia Sachas Hotel（Tib Street，近北角 Northern Quarter）",
+            "dates": "11月14日–15日",
+            "offer": "每公斤£15",
+            "url": "https://www.eventbrite.co.uk/d/united-kingdom--manchester/patagonia-sample-sale/",
+            "source": "Eventbrite",
+            "interesting": true,
+            "firstSeen": "2026-10-31T20:47:45.464Z"
+          },
+          {
+            "title": "户外服饰样品及瑕疵品特卖：Mountain Equipment、Sprayway、Ronhill等",
+            "brand": "Mountain Equipment / Sprayway / Ronhill",
+            "summary": "Mountain Equipment、Sprayway、Ronhill 等户外及跑步品牌的样品和瑕疵品特卖（Sample & Seconds Sale），只开一天。具体折扣力度没有公布。",
+            "location": "大曼彻斯特 斯泰利布里奇 Stalybridge Celtic Football Club（Mottram Road, SK15 2RT）",
+            "dates": "11月7日（仅一天）",
+            "offer": "样品/瑕疵品特价（折扣力度未公布）",
+            "url": "https://www.eventbrite.co.uk/d/united-kingdom--manchester/patagonia-sample-sale/",
+            "source": "Eventbrite",
+            "interesting": true,
+            "firstSeen": "2026-10-31T20:47:45.464Z"
+          },
+          {
+            "title": "Gramicci、Kavu、Snow Peak 等品牌样品特卖今天最后一天",
+            "brand": "Gramicci / Kavu / Snow Peak",
+            "summary": "Gramicci、Kavu、Snow Peak 等户外潮牌的样品特卖，从10月30日开到10月31日，今天是最后一天，想去要赶紧。折扣力度没有公布。",
+            "location": "Wellington Mill, Duke Street, 曼彻斯特（具体地址请看活动页）",
+            "dates": "10月30日–31日（今天截止）",
+            "offer": "样品特价（折扣力度未公布）",
+            "url": "https://www.eventbrite.co.uk/d/united-kingdom--manchester/patagonia-sample-sale/",
+            "source": "Eventbrite",
+            "interesting": true,
+            "firstSeen": "2026-10-31T20:47:45.464Z"
+          },
+          {
+            "title": "Archive Is The Future 中古/档案时装特卖会",
+            "brand": "Archive Is The Future",
+            "summary": "主办方称这是英国策展最精心的中古档案时装特卖兼体验活动，11月8日来曼城，只办一天。",
+            "location": "维多利亚浴场 Victoria Baths（Hathersage Road，Longsight）",
+            "dates": "11月8日（仅一天）",
+            "offer": "",
+            "url": "https://www.eventbrite.com/d/united-kingdom--manchester--50133/sample-sale/",
+            "source": "Eventbrite",
+            "interesting": true,
+            "firstSeen": "2026-10-31T20:47:45.464Z"
+          },
+          {
+            "title": "Lou Lou's 古着市集重返曼城",
+            "brand": "Lou Lou's Vintage Market",
+            "summary": "Lou Lou's 古着市集回到曼彻斯特，一整天都能逛古着、复古服饰和配饰。",
+            "location": "维多利亚浴场 Victoria Baths（Hathersage Road，Longsight）",
+            "dates": "11月22日（仅一天）",
+            "offer": "",
+            "url": "https://www.eventbrite.co.uk/d/united-kingdom--manchester--50133/sample-sale-clothes/",
+            "source": "Eventbrite",
+            "interesting": false,
+            "firstSeen": "2026-10-31T20:47:45.464Z"
+          },
+          {
+            "title": "AZAZIE 婚纱/伴娘服快闪试穿活动",
+            "brand": "AZAZIE",
+            "summary": "AZAZIE 曼城快闪活动，可以现场试穿婚纱和伴娘服，Eventbrite 上有早鸟票。",
+            "location": "曼彻斯特市中心 Crowne Plaza Manchester City Centre",
+            "dates": "11月21日",
+            "offer": "",
+            "url": "https://www.eventbrite.com/d/united-kingdom--manchester--50133/sample-sale/",
+            "source": "Eventbrite",
+            "interesting": false,
+            "firstSeen": "2026-10-31T20:47:45.464Z"
+          }
+        ]
+      },
+      "Toys & Collectibles": {
+        "fetchedAt": "2026-10-31T20:47:45.464Z",
+        "findings": []
+      }
+    }
+  }
 }
