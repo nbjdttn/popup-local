@@ -186,20 +186,31 @@
       render();
     });
 
+    load();
+    // When she comes back to a page left open (e.g. yesterday's Safari tab), fetch the latest results.
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') load();
+    });
+
+    render();
+  }
+
+  function load() {
     fetch('data/feed.json', { cache: 'no-cache' })
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(r.status))))
       .then((feed) => {
-        state.feed = feed;
         $('updated').textContent = feed.updatedAt ? `${timeAgo(feed.updatedAt)}更新` : '尚未更新';
-        state.category = store.get('category');
+        if (state.feed && state.feed.updatedAt === feed.updatedAt) return; // nothing new
+        const first = !state.feed;
+        state.feed = feed;
+        if (first) state.category = store.get('category');
         render();
       })
       .catch(() => {
+        if (state.feed) return; // keep showing what we have
         $('updated').textContent = '加载失败';
         $('list').replaceChildren(empty('加载失败', '请刷新页面再试。'));
       });
-
-    render();
   }
 
   init();
