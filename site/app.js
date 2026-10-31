@@ -45,8 +45,19 @@
     return /^https?:\/\//i.test(url || '') ? url : '#';
   }
 
+  /** Categories shown on the current tab. */
   function categories() {
-    return state.feed?.categories?.length ? state.feed.categories : [];
+    const all = state.feed?.categories ?? [];
+    return all.filter((c) => !c.kinds || c.kinds.includes(state.kind));
+  }
+
+  /** Keep the selected chip valid when switching to a tab that doesn't have it. */
+  function fixCategory() {
+    const names = categories().map((c) => c.name);
+    if (!names.includes(state.category)) {
+      const saved = store.get('category');
+      state.category = names.includes(saved) ? saved : names[0] ?? null;
+    }
   }
 
   function itemsFor(kind, name) {
@@ -79,6 +90,8 @@
       });
       box.append(btn);
     }
+    const selected = box.querySelector('[aria-pressed="true"]');
+    if (selected) box.scrollLeft = Math.max(0, selected.offsetLeft - 16 - box.offsetLeft);
   }
 
   function card(f) {
@@ -147,6 +160,7 @@
 
   function render() {
     document.body.dataset.kind = state.kind;
+    fixCategory();
     for (const tab of document.querySelectorAll('.tab')) {
       tab.setAttribute('aria-selected', String(tab.dataset.kind === state.kind));
     }
@@ -177,9 +191,7 @@
       .then((feed) => {
         state.feed = feed;
         $('updated').textContent = feed.updatedAt ? `${timeAgo(feed.updatedAt)}更新` : '尚未更新';
-        const names = categories().map((c) => c.name);
-        const saved = store.get('category');
-        state.category = names.includes(saved) ? saved : names[0] ?? null;
+        state.category = store.get('category');
         render();
       })
       .catch(() => {

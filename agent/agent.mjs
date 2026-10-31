@@ -77,34 +77,67 @@ const REPORT_TOOL = {
   },
 };
 
-/** @param {'popup'|'deal'} kind @param {{name: string, zh: string}} category */
-export function buildPrompt(kind, category, today = new Date()) {
-  const date = today.toISOString().slice(0, 10);
-  const what =
-    kind === 'popup'
-      ? 'new or upcoming pop-up shops, pop-up stores, store openings, launch events, limited-time stalls and brand activations'
-      : 'current discounts, promotions, sales, coupon codes, student and member deals, and limited-time offers';
-  const zhWhat = kind === 'popup' ? '快闪 / 快闪店 / 新店开业' : '折扣 / 优惠 / 限时活动';
+const KIND_WORDS = {
+  popup: {
+    en: 'new or upcoming pop-up shops, store openings, launch events, limited-time stalls and brand activations',
+    zh: '快闪, 快闪店, 新店开业, 开业活动, 限定活动, 打卡',
+  },
+  deal: {
+    en: 'freebies, current discounts, buy-one-get-one-free offers, coupon codes, student and member deals',
+    zh: '羊毛, 今日羊毛, 免费, 🆓, 买一送一, BOGO, 折扣, 优惠, 学生折扣, 好物推荐',
+  },
+};
+
+/** Real Xiaohongshu posts the user picked as examples of what she wants to see. */
+const EXAMPLES = [
+  '"曼城今日羊毛（10.31）泡泡玛特🆓礼物" - Pop Mart Manchester Halloween event: the first 100 people into the store could draw a free small gift.',
+  '"曼城茶宴31号鸳鸯上新BOGO" - 茶宴 Chayan Manchester: buy one get one free on a new drink, Saturday 31 October only.',
+  '"强力推荐这款LIDL 这款螯虾" - a Lidl product (Scottish langoustines) that people recommend as great value.',
+];
+
+/** Today's date in Manchester, as YYYY-MM-DD. */
+function manchesterDate(now) {
+  return now.toLocaleDateString('en-CA', { timeZone: PLACE.timezone });
+}
+
+/**
+ * @param {'popup'|'deal'} kind
+ * @param {{name: string, zh: string, hints?: string}} category
+ */
+export function buildPrompt(kind, category, now = new Date()) {
+  const words = KIND_WORDS[kind];
+  const [city] = PLACE.chineseNames;
+  const firstHint = (category.hints ?? category.zh).split(',')[0].trim();
 
   return [
-    `Today is ${date}. Find ${what} in the category "${category.name}" in Manchester, UK.`,
+    `Today is ${manchesterDate(now)} in Manchester. You are helping a Chinese woman who lives in Manchester, UK.`,
+    `Find ${words.en} in the category "${category.zh}" (${category.name}) in Manchester.`,
     `Manchester here means: ${PLACE.areas}.`,
-    category.name === 'Pop Mart'
-      ? 'For Pop Mart, include store openings, Robo Shop machines, blind-box or figure drops, restocks and Pop Mart pop-up events in Manchester.'
+    '',
+    'The kind of posts she wants (real Xiaohongshu examples, shown for style only; do not return them unless they are still current):',
+    ...EXAMPLES.map((e) => `- ${e}`),
+    '',
+    'Where and how to search:',
+    `- Chinese posts usually call the city ${PLACE.chineseNames.join(' or ')}. Xiaohongshu / RED (小红书, xiaohongshu.com) is the most important source,`,
+    '  then Weibo (微博), WeChat articles (微信公众号, mp.weixin.qq.com) and Dianping (大众点评).',
+    `- Run at least three Chinese searches using the words people actually post with: ${words.zh}.`,
+    `  For example "${city} ${category.zh} ${words.zh.split(',')[0]}", "${city} ${firstHint}", "${city} 今日羊毛", and the same with site:xiaohongshu.com.`,
+    `- Search words for this category: ${category.hints ?? category.zh}.`,
+    '- Also run at least one English search (brand and shop sites, Instagram, Manchester Evening News, Secret Manchester, Time Out).',
+    '- Search snippets often leave out dates. Use web_fetch to open the most promising posts, especially xiaohongshu.com notes,',
+    '  to check when it was posted, when the event or offer runs, and the details. Public notes can usually be opened on the website.',
+    category.name === 'Supermarket finds'
+      ? '- For supermarket finds, also include well-reviewed products worth buying (好物推荐) posted in the last two weeks, even without a discount.'
       : '',
     '',
-    'Search in English and in Chinese. Many pop-ups and deals for the Chinese community are posted first on',
-    'Xiaohongshu / RED (小红书), Weibo (微博), WeChat articles (mp.weixin.qq.com) and Dianping (大众点评).',
-    `- Run at least two Chinese-language searches, e.g. "${PLACE.chineseName} ${category.zh} ${zhWhat}", or add site:xiaohongshu.com.`,
-    '- You can only see posts that are public on the web; that is fine, use what you can find.',
-    '- Social posts are often old: only keep items whose dates you can confirm are current or upcoming.',
-    '',
     'Rules:',
-    '- Only include things in Manchester that are running now or start within the next 30 days. Skip anything that has ended or is in another city.',
-    '- Every item needs a real source URL from your search results. Do not invent details; leave a field empty if unknown.',
-    `- Return at most ${MAX_FINDINGS} items, most interesting first. Remove duplicates.`,
+    '- Only things in Manchester. Skip other cities.',
+    '- Only things that are on today or start within the next 30 days, or posts from the last 14 days about something still available. Skip anything that has ended, including one-day events before today.',
+    '- Every item needs a real source URL from your searches. Do not invent details; leave a field empty if unknown.',
+    `- Return at most ${MAX_FINDINGS} items, most useful first. Remove duplicates (the same offer posted by several people counts once).`,
+    '- Mark interesting = true for free gifts, buy-one-get-one-free, 30% or more off, one-day or first-N-people events, limited drops and new openings.',
     '- Write every field in Simplified Chinese (简体中文), even when the source is in English. Keep brand names recognisable and',
-    '  give English place names next to the Chinese so people can find them on a map.',
+    '  give English place names next to the Chinese so she can find them on a map.',
     '- When you are done, call the report_findings tool once with the list.',
   ]
     .filter((line, i, all) => line !== '' || (all[i - 1] ?? '') !== '')
@@ -162,6 +195,14 @@ export async function runSearch(client, kind, category) {
     },
   };
 
+  // Lets Claude open promising pages (e.g. public Xiaohongshu notes) to check dates and details.
+  const webFetch = {
+    type: 'web_fetch_20260209',
+    name: 'web_fetch',
+    max_uses: 5,
+    max_content_tokens: 8000,
+  };
+
   const messages = [{ role: 'user', content: buildPrompt(kind, category) }];
 
   for (let turn = 0; turn < MAX_TURNS; turn++) {
@@ -173,7 +214,7 @@ export async function runSearch(client, kind, category) {
       // If a safety classifier declines, let the API retry on its recommended model.
       betas: ['server-side-fallback-2026-07-01'],
       fallbacks: 'default',
-      tools: [webSearch, REPORT_TOOL],
+      tools: [webSearch, webFetch, REPORT_TOOL],
       messages,
     });
 

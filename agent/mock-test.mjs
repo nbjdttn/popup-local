@@ -8,7 +8,7 @@ import Anthropic from '@anthropic-ai/sdk';
 
 import { buildPrompt } from './agent.mjs';
 import { CATEGORIES, KINDS } from './config.mjs';
-import { notifyMarkdown, updateFeed } from './update-feed.mjs';
+import { notifyMarkdown, searchJobs, updateFeed } from './update-feed.mjs';
 
 const OLD = '2026-10-30T07:00:00.000Z';
 const item = (title, interesting = false, source = 'Xiaohongshu') => ({
@@ -30,7 +30,7 @@ const fakeFetch = async (_url, init) => {
   requests.push({ body, headers: new Headers(init.headers) });
   calls++;
   const prompt = body.messages[0].content;
-  const isPopMartPopup = prompt.includes('"Pop Mart"') && prompt.includes('pop-up shops');
+  const isPopMartPopup = prompt.includes('(Pop Mart)') && prompt.includes('pop-up shops');
   let reply;
   if (isPopMartPopup && body.messages.length === 1) {
     // First turn: the server-side search loop pauses.
@@ -81,10 +81,14 @@ assert.equal(first.headers.get('anthropic-beta'), 'server-side-fallback-2026-07-
 assert.deepEqual(first.body.thinking, { type: 'adaptive' });
 assert.equal(first.body.tools[0].type, 'web_search_20260209');
 assert.equal(first.body.tools[0].user_location.city, 'Manchester');
-assert.equal(first.body.tools[1].name, 'report_findings');
+assert.equal(first.body.tools[1].type, 'web_fetch_20260209');
+assert.equal(first.body.tools[2].name, 'report_findings');
 
 // One search per tab x category, plus one extra turn for the paused search.
-assert.equal(total, KINDS.length * CATEGORIES.length);
+const expectedJobs = KINDS.reduce((n, k) => n + CATEGORIES.filter((c) => c.kinds.includes(k)).length, 0);
+assert.equal(total, expectedJobs);
+assert.equal(searchJobs().filter((j) => j.category.name === 'Supermarket finds').length, 1, 'supermarket: deals tab only');
+assert.deepEqual(feed.categories.find((c) => c.name === 'Supermarket finds').kinds, ['deal']);
 assert.equal(failed, 0);
 assert.equal(calls, total + 1);
 
@@ -105,7 +109,10 @@ assert.match(md, /Robo Shop opening/);
 const prompt = buildPrompt('popup', CATEGORIES[0], now);
 assert.match(prompt, /Manchester/);
 assert.match(prompt, /小红书/);
-assert.match(prompt, /曼彻斯特 泡泡玛特/);
+assert.match(prompt, /曼城 泡泡玛特/);
+assert.match(prompt, /曼城 今日羊毛/);
+assert.match(prompt, /web_fetch/);
+assert.match(buildPrompt('deal', CATEGORIES.find((c) => c.name === 'Supermarket finds'), now), /好物推荐/);
 assert.match(prompt, /Simplified Chinese/);
 assert.match(md, /### 快闪活动/);
 assert.match(md, /\*\*泡泡玛特\*\*/);

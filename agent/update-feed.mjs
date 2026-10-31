@@ -27,6 +27,13 @@ async function loadPrevious() {
   }
 }
 
+/** Every tab x category pair to search (some categories only appear on one tab). */
+export function searchJobs() {
+  return KINDS.flatMap((kind) =>
+    CATEGORIES.filter((c) => (c.kinds ?? KINDS).includes(kind)).map((category) => ({ kind, category })),
+  );
+}
+
 /** Run async jobs with at most `limit` in flight. */
 async function pool(items, limit, worker) {
   const results = new Array(items.length);
@@ -43,7 +50,7 @@ async function pool(items, limit, worker) {
 
 export async function updateFeed({ client, previous, now = new Date() }) {
   const runAt = now.toISOString();
-  const jobs = KINDS.flatMap((kind) => CATEGORIES.map((category) => ({ kind, category })));
+  const jobs = searchJobs();
 
   const outcomes = await pool(jobs, CONCURRENCY, async ({ kind, category }) => {
     const label = `${kind}/${category.name}`;
@@ -61,7 +68,7 @@ export async function updateFeed({ client, previous, now = new Date() }) {
   const feed = {
     city: PLACE.city,
     updatedAt: runAt,
-    categories: CATEGORIES,
+    categories: CATEGORIES.map(({ name, zh, kinds }) => ({ name, zh, kinds: kinds ?? [...KINDS] })),
     feeds: { popup: {}, deal: {} },
   };
   const notify = [];
@@ -92,7 +99,7 @@ export function notifyMarkdown(notify, pageUrl) {
   for (const kind of KINDS) {
     const items = notify.filter((n) => n.kind === kind);
     if (!items.length) continue;
-    lines.push(`### ${kind === 'popup' ? '快闪活动' : '优惠折扣'}`, '');
+    lines.push(`### ${kind === 'popup' ? '快闪活动' : '羊毛优惠'}`, '');
     for (const { category, f } of items) {
       const extra = [f.offer, f.dates, f.location].filter(Boolean).join(' · ');
       lines.push(`- **${category.zh}** — [${f.title}](${f.url})${extra ? ` — ${extra}` : ''}`);

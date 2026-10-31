@@ -3,8 +3,8 @@
 A web page, entirely in Chinese, that lists **new pop-ups** and **new deals in Manchester**. A Claude agent finds them every morning by searching the web in English and Chinese, and writes the results in Simplified Chinese. There's nothing to install: people just open the link.
 
 - **快闪活动 (Pop-ups)**: pop-up shops, store openings, launch events and limited drops.
-- **优惠折扣 (Deals)**: discounts, sales, coupon codes, student and member offers.
-- Both tabs share the same categories: 泡泡玛特, 美食, 咖啡甜品, 时尚服饰, 美妆, 潮玩手办.
+- **羊毛优惠 (Deals)**: 羊毛 freebies, buy-one-get-one-free, discounts, coupon codes, student offers and supermarket finds.
+- Categories: 泡泡玛特, 美食, 奶茶咖啡, 美妆, 时尚服饰, 潮玩手办 on both tabs, plus 超市好物 (Lidl, Aldi, Tesco, 华人超市…) on 羊毛优惠 only.
 - **新** marks items found in the last 3 days. **★** marks stand-out items (new openings, limited drops, discounts of 30% or more, freebies). The **★ 只看精选** switch shows only those.
 
 ## How it works
@@ -14,14 +14,14 @@ GitHub Actions (every morning)         GitHub Pages
 ┌──────────────────────────────┐       ┌──────────────────────┐
 │ agent/update-feed.mjs         │       │ site/index.html      │
 │  └ Claude + web search        │──────▶│  reads               │
-│    (12 searches: 2 tabs ×     │ saves │  site/data/feed.json │
-│     6 categories)             │       └──────────────────────┘
+│    (13 searches: each tab ×   │ saves │  site/data/feed.json │
+│     its categories)           │       └──────────────────────┘
 │  └ new ★ items → GitHub issue │──▶ notification to repo watchers
 └──────────────────────────────┘
 ```
 
 1. **The agent runs in GitHub Actions**, on GitHub's own machines, once a day (around 8am UK time). You can also run it any time from the Actions tab. GitHub Pages only serves files, so the agent can't run on the page itself. Your Anthropic API key is kept as a repository secret and never reaches the page.
-2. For each tab and category, Claude uses Anthropic's **web search** tool, set to Manchester, and reports structured results through a `report_findings` tool. It runs at least two **Chinese-language searches** each time (e.g. `曼彻斯特 泡泡玛特 快闪`, `site:xiaohongshu.com`) to pick up Xiaohongshu / RED, Weibo, WeChat and Dianping posts.
+2. For each tab and category, Claude uses Anthropic's **web search** tool, set to Manchester. It runs at least three **Chinese searches** using the words people actually post with: 曼城, 今日羊毛, 🆓, 买一送一, BOGO, 快闪, 新店开业, 好物推荐… (e.g. `曼城 今日羊毛`, `曼城 泡泡玛特 site:xiaohongshu.com`), plus an English search. The prompt includes three real Xiaohongshu posts as examples of what's wanted (a Pop Mart free-gift draw, a 茶宴 Chayan BOGO, a Lidl product tip). Claude then uses **web fetch** to open the most promising public notes and check their dates and details, and reports structured results through a `report_findings` tool.
 3. Claude writes every result in Simplified Chinese, with English place names alongside so they're easy to find on a map. Results are saved to `site/data/feed.json` in the repo, and the page is republished.
 4. **Notifications:** if a run finds new ★ items, the workflow opens a GitHub issue (in Chinese) listing them. Anyone who **watches** the repo gets it as a GitHub notification (GitHub mobile app or email).
 
@@ -37,7 +37,7 @@ GitHub Actions (every morning)         GitHub Pages
 
 ## Cost
 
-Each run makes 12 Claude searches (Claude Opus 5.5, up to 8 web searches each). Web search costs $10 per 1,000 searches, plus tokens for reading the results. Expect roughly a few dollars per run, and there is one run a day. Check your usage in the Anthropic Console after the first run. To spend less, remove categories in `agent/config.mjs`, or run every few days by editing the `cron` line in `.github/workflows/update-feed.yml`.
+Each run makes 13 Claude searches (Claude Opus 5.5, each with up to 8 web searches and 5 page fetches). Web search costs $10 per 1,000 searches, plus tokens for reading the results. Expect roughly a few dollars per run, and there is one run a day. Check your usage in the Anthropic Console after the first run. To spend less, remove categories in `agent/config.mjs`, or run every few days by editing the `cron` line in `.github/workflows/update-feed.yml`.
 
 ## Changing things
 
