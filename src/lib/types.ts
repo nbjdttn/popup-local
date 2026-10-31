@@ -15,6 +15,10 @@ export interface Finding {
   offer: string;
   /** Link to the page the agent read this on. */
   url: string;
+  /** Where it was found, e.g. "Xiaohongshu", "Weibo", "Time Out", "Brand site". */
+  source: string;
+  /** Agent's judgement: worth a push notification (big discount, limited drop, new opening...). */
+  interesting: boolean;
 }
 
 export interface FeedResult {
@@ -23,14 +27,28 @@ export interface FeedResult {
   city: string;
   fetchedAt: string; // ISO timestamp
   findings: Finding[];
+  /** Keys of findings that were not in the previous result, shown with a NEW badge. */
+  newKeys?: string[];
+}
+
+export function findingKey(f: Pick<Finding, 'title' | 'url'>) {
+  return `${f.title.trim().toLowerCase()}|${f.url.trim()}`;
 }
 
 export interface Settings {
   apiKey: string;
   city: string;
+  /** State / province / region, optional. */
+  region: string;
   /** Two-letter country code, helps the web search pick local results. */
   country: string;
   categories: string[];
+  /** Also search Chinese-language social media: Xiaohongshu (RED), Weibo, Dianping, WeChat. */
+  chineseSources: boolean;
+  /** Language for titles and summaries. */
+  language: 'en' | 'zh';
+  /** Check in the background and send a notification about interesting new finds. */
+  notifications: boolean;
 }
 
 export const DEFAULT_CATEGORIES = [
@@ -45,6 +63,10 @@ export const DEFAULT_CATEGORIES = [
 export const DEFAULT_SETTINGS: Settings = {
   apiKey: '',
   city: '',
+  region: '',
   country: '',
   categories: DEFAULT_CATEGORIES,
+  chineseSources: true,
+  language: 'en',
+  notifications: false,
 };

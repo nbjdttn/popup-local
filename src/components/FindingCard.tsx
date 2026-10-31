@@ -12,7 +12,15 @@ function hostOf(url: string) {
   }
 }
 
-export function FindingCard({ item, kind }: { item: Finding; kind: FeedKind }) {
+export function FindingCard({
+  item,
+  kind,
+  isNew = false,
+}: {
+  item: Finding;
+  kind: FeedKind;
+  isNew?: boolean;
+}) {
   const accent = accentFor(kind);
   return (
     <Pressable
@@ -22,7 +30,15 @@ export function FindingCard({ item, kind }: { item: Finding; kind: FeedKind }) {
       accessibilityHint="Opens the source page"
     >
       <View style={styles.header}>
-        {item.brand ? <Text style={[styles.brand, { color: accent }]}>{item.brand}</Text> : null}
+        <View style={styles.headerLeft}>
+          {isNew ? <Text style={styles.newTag}>NEW</Text> : null}
+          {item.interesting ? <Text style={styles.star}>★</Text> : null}
+          {item.brand ? (
+            <Text style={[styles.brand, { color: accent }]} numberOfLines={1}>
+              {item.brand}
+            </Text>
+          ) : null}
+        </View>
         {item.offer ? (
           <View style={[styles.badge, { backgroundColor: accent }]}>
             <Text style={styles.badgeText}>{item.offer}</Text>
@@ -33,7 +49,10 @@ export function FindingCard({ item, kind }: { item: Finding; kind: FeedKind }) {
       {item.summary ? <Text style={styles.summary}>{item.summary}</Text> : null}
       {item.dates ? <Text style={styles.meta}>🗓  {item.dates}</Text> : null}
       {item.location ? <Text style={styles.meta}>📍  {item.location}</Text> : null}
-      <Text style={styles.source}>{hostOf(item.url)} ↗</Text>
+      <Text style={styles.source}>
+        {item.source ? `${item.source} · ` : ''}
+        {hostOf(item.url)} ↗
+      </Text>
     </Pressable>
   );
 }
@@ -49,6 +68,18 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
   },
   header: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8 },
+  headerLeft: { flexDirection: 'row', alignItems: 'center', gap: 6, flexShrink: 1 },
+  newTag: {
+    fontSize: 10,
+    fontWeight: '800',
+    color: '#fff',
+    backgroundColor: colors.text,
+    borderRadius: 4,
+    paddingHorizontal: 5,
+    paddingVertical: 1,
+    overflow: 'hidden',
+  },
+  star: { fontSize: 13, color: '#E0A100' },
   brand: { fontSize: 12, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 0.5, flexShrink: 1 },
   badge: { borderRadius: 999, paddingHorizontal: 10, paddingVertical: 3 },
   badgeText: { color: '#fff', fontSize: 12, fontWeight: '700' },

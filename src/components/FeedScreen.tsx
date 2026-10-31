@@ -1,4 +1,4 @@
-import { Link } from 'expo-router';
+import { Link, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   ActivityIndicator,
@@ -12,11 +12,12 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { AgentError, runSearch } from '../lib/agent';
+import { AgentError } from '../lib/agent';
+import { refreshFeed } from '../lib/refresh';
 import { useSettings } from '../lib/settings-context';
-import { loadFeed, saveFeed } from '../lib/storage';
+import { loadFeed } from '../lib/storage';
 import { accentFor, colors } from '../lib/theme';
-import type { FeedKind, FeedResult } from '../lib/types';
+import { findingKey, type FeedKind, type FeedResult } from '../lib/types';
 import { FindingCard } from './FindingCard';
 
 const COPY = {
@@ -38,7 +39,13 @@ export function FeedScreen({ kind }: { kind: FeedKind }) {
   const accent = accentFor(kind);
   const categories = settings.categories;
 
+  // A tapped notification opens this tab with ?category=<name>.
+  const params = useLocalSearchParams<{ category?: string }>();
   const [category, setCategory] = useState(categories[0] ?? '');
+
+  useEffect(() => {
+    if (params.category && categories.includes(params.category)) setCategory(params.category);
+  }, [params.category, categories]);
   const [results, setResults] = useState<Record<string, FeedResult | null>>({});
   const [busy, setBusy] = useState<Record<string, boolean>>({});
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -50,20 +57,23 @@ export function FeedScreen({ kind }: { kind: FeedKind }) {
     if (!categories.includes(category)) setCategory(categories[0] ?? '');
   }, [categories, category]);
 
-  // Load cached results for every category whenever the city or list changes.
-  useEffect(() => {
-    if (!loaded) return;
-    let cancelled = false;
-    Promise.all(categories.map((c) => loadFeed(kind, c, settings.city))).then((list) => {
-      if (cancelled) return;
-      const next: Record<string, FeedResult | null> = {};
-      categories.forEach((c, i) => (next[c] = list[i]));
-      setResults(next);
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, [kind, categories, settings.city, loaded]);
+  // Load saved results each time this tab is shown (background checks may have
+  // added new ones) and whenever the city or category list changes.
+  useFocusEffect(
+    useCallback(() => {
+      if (!loaded) return;
+      let cancelled = false;
+      Promise.all(categories.map((c) => loadFeed(kind, c, settings.city))).then((list) => {
+        if (cancelled) return;
+        const next: Record<string, FeedResult | null> = {};
+        categories.forEach((c, i) => (next[c] = list[i]));
+        setResults(next);
+      });
+      return () => {
+        cancelled = true;
+      };
+    }, [kind, categories, settings.city, loaded]),
+  );
 
   useEffect(() => () => aborter.current?.abort(), []);
 
@@ -72,8 +82,7 @@ export function FeedScreen({ kind }: { kind: FeedKind }) {
       setBusy((b) => ({ ...b, [cat]: true }));
       setErrors((e) => ({ ...e, [cat]: '' }));
       try {
-        const result = await runSearch(kind, cat, settings, signal);
-        await saveFeed(result);
+        const { result } = await refreshFeed(kind, cat, settings, signal);
         setResults((r) => ({ ...r, [cat]: result }));
       } catch (err) {
         if (signal?.aborted) return;
@@ -105,6 +114,7 @@ export function FeedScreen({ kind }: { kind: FeedKind }) {
   const current = results[category];
   const isBusy = !!busy[category];
   const error = errors[category];
+  const newKeys = new Set(current?.newKeys ?? []);
 
   return (
     <SafeAreaView style={styles.screen} edges={['top']}>
@@ -140,7 +150,11 @@ export function FeedScreen({ kind }: { kind: FeedKind }) {
             >
               <Text style={[styles.chipText, active && { color: '#fff' }]}>
                 {c}
-                {busy[c] ? ' …' : results[c]?.findings.length ? ` · ${results[c]!.findings.length}` : ''}
+                {busy[c]
+                  ? ' …'
+                  : results[c]?.findings.length
+                    ? ` · ${results[c]!.findings.length}`
+                    : ''}
               </Text>
             </Pressable>
           );
@@ -163,7 +177,9 @@ export function FeedScreen({ kind }: { kind: FeedKind }) {
         <FlatList
           data={current?.findings ?? []}
           keyExtractor={(item, i) => `${item.url}-${i}`}
-          renderItem={({ item }) => <FindingCard item={item} kind={kind} />}
+          renderItem={({ item }) => (
+            <FindingCard item={item} kind={kind} isNew={newKeys.has(findingKey(item))} />
+          )}
           contentContainerStyle={{ paddingTop: 8, paddingBottom: 32, flexGrow: 1 }}
           refreshControl={
             <RefreshControl
@@ -177,9 +193,13 @@ export function FeedScreen({ kind }: { kind: FeedKind }) {
             <View style={styles.status}>
               {error ? <Text style={styles.error}>{error}</Text> : null}
               {isBusy ? (
-                <Text style={styles.statusText}>Agent is searching the web… this can take a minute.</Text>
+                <Text style={styles.statusText}>
+                  Agent is searching the web… this can take a minute.
+                </Text>
               ) : current ? (
-                <Text style={styles.statusText}>Updated {timeAgo(current.fetchedAt)} · pull to refresh</Text>
+                <Text style={styles.statusText}>
+                  Updated {timeAgo(current.fetchedAt)} · pull to refresh
+                </Text>
               ) : null}
             </View>
           }

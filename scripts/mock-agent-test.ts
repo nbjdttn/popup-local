@@ -1,5 +1,6 @@
 // Exercises runSearch() against a fake Anthropic API: pause_turn -> report_findings.
 import { runSearch } from '../src/lib/agent';
+import { DEFAULT_SETTINGS } from '../src/lib/types';
 
 const calls: any[] = [];
 const replies = [
@@ -9,7 +10,7 @@ const replies = [
     content: [{
       type: 'tool_use', id: 'toolu_1', name: 'report_findings',
       input: { findings: [
-        { title: 'Pop Mart Labubu pop-up', brand: 'Pop Mart', summary: 'x', location: 'Westfield', dates: '1-10 Nov', offer: '', url: 'https://example.com/a' },
+        { title: 'Pop Mart Labubu pop-up', brand: 'Pop Mart', summary: 'x', location: 'Westfield', dates: '1-10 Nov', offer: '', url: 'https://example.com/a', source: 'Xiaohongshu', interesting: true },
         { title: 'Pop Mart Labubu pop-up', brand: 'Pop Mart', summary: 'dup', location: '', dates: '', offer: '', url: 'https://example.com/a' },
         { title: 'No url item', brand: '', summary: '', location: '', dates: '', offer: '', url: 'not-a-url' },
       ] },
@@ -25,7 +26,7 @@ globalThis.fetch = (async (url: any, init: any) => {
 }) as any;
 
 (async () => {
-  const res = await runSearch('popup', 'Pop Mart', { apiKey: 'sk-test', city: 'London', country: 'gb', categories: [] });
+  const res = await runSearch('popup', 'Pop Mart', { ...DEFAULT_SETTINGS, apiKey: 'sk-test', city: 'London', country: 'gb' });
   const b = calls[0].body;
   const h = new Headers(calls[0].headers);
   console.log('calls:', calls.length, calls[0].url);
@@ -33,7 +34,10 @@ globalThis.fetch = (async (url: any, init: any) => {
   console.log('model/fallbacks/thinking/effort:', b.model, b.fallbacks, JSON.stringify(b.thinking), JSON.stringify(b.output_config));
   console.log('tools:', b.tools.map((t: any) => t.type ?? t.name).join(', '), JSON.stringify(b.tools[0].user_location));
   console.log('2nd call messages:', calls[1].body.messages.map((m: any) => m.role).join(','));
+  const prompt = b.messages[0].content as string;
+  console.log('chinese sources in prompt:', prompt.includes('小红书'), '| max_uses:', b.tools[0].max_uses);
   console.log('findings:', JSON.stringify(res.findings.map(f => f.title)));
-  if (res.findings.length !== 1 || calls.length !== 2) { console.error('FAIL'); process.exit(1); }
+  console.log('source/interesting:', res.findings[0].source, res.findings[0].interesting);
+  if (res.findings.length !== 1 || calls.length !== 2 || !prompt.includes('小红书') || res.findings[0].interesting !== true) { console.error('FAIL'); process.exit(1); }
   console.log('PASS');
 })().catch(e => { console.error(e); process.exit(1); });

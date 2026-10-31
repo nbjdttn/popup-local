@@ -26,7 +26,24 @@
     "plugins": [
       "expo-router",
       "expo-secure-store",
-      "expo-web-browser"
+      "expo-web-browser",
+      "expo-background-task",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Popup Local uses your location to find pop-ups and deals near you.",
+          "locationAlwaysAndWhenInUsePermission": false,
+          "locationAlwaysPermission": false,
+          "isIosBackgroundLocationEnabled": false,
+          "isAndroidBackgroundLocationEnabled": false
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#E8467C"
+        }
+      ]
     ],
     "scheme": "popuplocal"
   }

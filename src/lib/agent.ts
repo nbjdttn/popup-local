@@ -1,6 +1,6 @@
 import Anthropic from '@anthropic-ai/sdk';
 
-import type { FeedKind, FeedResult, Finding, Settings } from './types';
+import { findingKey, type FeedKind, type FeedResult, type Finding, type Settings } from './types';
 
 /**
  * The search agent.
@@ -34,7 +34,17 @@ const REPORT_TOOL: Anthropic.Beta.BetaTool = {
         items: {
           type: 'object',
           additionalProperties: false,
-          required: ['title', 'brand', 'summary', 'location', 'dates', 'offer', 'url'],
+          required: [
+            'title',
+            'brand',
+            'summary',
+            'location',
+            'dates',
+            'offer',
+            'url',
+            'source',
+            'interesting',
+          ],
           properties: {
             title: { type: 'string', description: 'Short headline for the pop-up or deal.' },
             brand: { type: 'string', description: 'Brand, shop or organiser.' },
@@ -52,6 +62,17 @@ const REPORT_TOOL: Anthropic.Beta.BetaTool = {
               description: 'Discount wording, e.g. "20% off". Empty string for pop-ups with no deal.',
             },
             url: { type: 'string', description: 'Source page URL taken from the search results.' },
+            source: {
+              type: 'string',
+              description:
+                'Where it was found, e.g. "Xiaohongshu", "Weibo", "Dianping", "WeChat", "Instagram", "Time Out", "Brand site".',
+            },
+            interesting: {
+              type: 'boolean',
+              description:
+                'True only for stand-out items worth a phone notification: new store openings, limited drops or collabs, ' +
+                'discounts of 30% or more, freebies, or anything with a short window. False for routine listings.',
+            },
           },
         },
       },
@@ -59,9 +80,21 @@ const REPORT_TOOL: Anthropic.Beta.BetaTool = {
   },
 };
 
+/** Extra instructions so the agent also covers Chinese social media, where many pop-ups are posted first. */
+function chineseSourcesBlock(category: string, where: string): string {
+  return [
+    'Also search Chinese-language sources, where many pop-ups and deals are posted first:',
+    '- Xiaohongshu / RED (小红书, xiaohongshu.com), Weibo (微博), Dianping (大众点评), WeChat articles (mp.weixin.qq.com) and Douyin (抖音).',
+    `- Write queries in Chinese using the Chinese name of ${where} and of the category "${category}", ` +
+      'for example "<城市> 泡泡玛特 快闪", "<城市> 快闪店 11月", "<城市> 折扣 优惠 限时", or add site:xiaohongshu.com.',
+    '- Run at least two Chinese-language searches as well as English ones.',
+    '- Social posts can be out of date: only keep items whose dates you can confirm are current or upcoming.',
+  ].join('\n');
+}
+
 function buildPrompt(kind: FeedKind, category: string, settings: Settings): string {
   const today = new Date().toISOString().slice(0, 10);
-  const where = [settings.city, settings.country].filter(Boolean).join(', ');
+  const where = [settings.city, settings.region, settings.country].filter(Boolean).join(', ');
   const what =
     kind === 'popup'
       ? `new or upcoming pop-up shops, pop-up stores, launch events, limited-time stalls and brand activations`
@@ -73,12 +106,16 @@ function buildPrompt(kind: FeedKind, category: string, settings: Settings): stri
     category.toLowerCase().includes('pop mart')
       ? 'For Pop Mart, include new store openings, Robo Shop machines, blind-box or figure drops, and Pop Mart pop-up events.'
       : '',
+    settings.chineseSources ? chineseSourcesBlock(category, where) : '',
     '',
     'Rules:',
     '- Search the web; prefer official brand pages, mall pages, local news and event listings.',
     '- Only include items that are running now or start within the next 30 days. Skip anything that has ended.',
     '- Every item needs a real source URL from your search results. Do not invent details; leave a field empty if unknown.',
     `- Return at most ${MAX_FINDINGS} items, most interesting first. Remove duplicates.`,
+    settings.language === 'zh'
+      ? '- Write title, summary, dates and offer in Simplified Chinese.'
+      : '- Write title, summary, dates and offer in English. If the source is in Chinese, add the original Chinese title in brackets after the English title.',
     '- When you are done, call the report_findings tool once with the list.',
   ]
     .filter((line) => line !== '')
@@ -104,9 +141,11 @@ function cleanFindings(input: unknown): Finding[] {
       dates: str(raw?.dates),
       offer: str(raw?.offer),
       url: str(raw?.url),
+      source: str(raw?.source),
+      interesting: raw?.interesting === true,
     };
     if (!f.title || !/^https?:\/\//i.test(f.url)) continue;
-    const key = `${f.title.toLowerCase()}|${f.url}`;
+    const key = findingKey(f);
     if (seen.has(key)) continue;
     seen.add(key);
     out.push(f);
@@ -133,10 +172,11 @@ export async function runSearch(
   const webSearch: Anthropic.Beta.BetaWebSearchTool20260209 = {
     type: 'web_search_20260209',
     name: 'web_search',
-    max_uses: 6,
+    max_uses: settings.chineseSources ? 8 : 6,
     user_location: {
       type: 'approximate',
       city: settings.city,
+      ...(settings.region ? { region: settings.region } : {}),
       ...(settings.country ? { country: settings.country.toUpperCase().slice(0, 2) } : {}),
     },
   };
