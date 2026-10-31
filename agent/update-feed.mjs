@@ -54,12 +54,16 @@ export async function updateFeed({ client, previous, now = new Date() }) {
   const outcomes = await pool(jobs, CONCURRENCY, async ({ kind, category }) => {
     const label = `${kind}/${category.name}`;
     const started = Date.now();
+    const tools = [];
+    const onToolUse = (name, detail) => tools.push(`    ${name === 'web_fetch' ? 'open  ' : 'search'} ${detail}`);
     try {
-      const findings = await runSearch(client, kind, category);
+      const findings = await runSearch(client, kind, category, { onToolUse });
       console.log(`✓ ${label}: ${findings.length} items in ${Math.round((Date.now() - started) / 1000)}s`);
+      if (tools.length) console.log(tools.join('\n'));
       return { kind, category, findings };
     } catch (err) {
       console.error(`✗ ${label}: ${err?.message ?? err}`);
+      if (tools.length) console.log(tools.join('\n'));
       return { kind, category, error: String(err?.message ?? err) };
     }
   });

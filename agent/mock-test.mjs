@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 
 import Anthropic from '@anthropic-ai/sdk';
 
-import { buildPrompt } from './agent.mjs';
+import { buildPrompt, runSearch } from './agent.mjs';
 import { CATEGORIES, KINDS } from './config.mjs';
 import { notifyWeChat, searchJobs, updateFeed } from './update-feed.mjs';
 import { buildMessage, clip, serverChanUrl } from './wechat.mjs';
@@ -35,7 +35,13 @@ const fakeFetch = async (_url, init) => {
   let reply;
   if (isPopMartPopup && body.messages.length === 1) {
     // First turn: the server-side search loop pauses.
-    reply = { stop_reason: 'pause_turn', content: [{ type: 'text', text: 'searching' }] };
+    reply = {
+      stop_reason: 'pause_turn',
+      content: [
+        { type: 'server_tool_use', id: 'srvtoolu_1', name: 'web_search', input: { query: 'Pop Mart Manchester event' } },
+        { type: 'text', text: 'searching' },
+      ],
+    };
   } else {
     const findings = isPopMartPopup
       ? [item('Labubu pop-up', true), item('Old news'), item('Robo Shop opening', true), item('Bad', true, 'x')]
@@ -163,6 +169,14 @@ assert.match(prompt, /曼城 今日羊毛/);
 assert.match(prompt, /web_fetch/);
 assert.match(buildPrompt('deal', CATEGORIES.find((c) => c.name === 'Supermarket finds'), now), /好物推荐/);
 assert.match(prompt, /Simplified Chinese/);
+assert.match(prompt, /Pop Mart Manchester event/, 'per-category original sources are in the prompt');
+assert.match(prompt, /Xiaohongshu notes almost never show up/);
+assert.match(buildPrompt('deal', CATEGORIES.find((c) => c.name === 'Supermarket finds'), now), /Middle of Lidl/);
+
+// Queries Claude ran are reported (they appear in the Actions log)
+const seen = [];
+await runSearch(client, 'popup', CATEGORIES[0], { onToolUse: (name, q) => seen.push(`${name}:${q}`) });
+assert.deepEqual(seen, ['web_search:Pop Mart Manchester event']);
 
 console.log('PASS — request shape, pause_turn, merge, WeChat message, prompt');
 console.log(`\nSample WeChat message (${msg.title}):\n${msg.desp}`);

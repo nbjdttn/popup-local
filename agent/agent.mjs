@@ -118,20 +118,24 @@ export function buildPrompt(kind, category, now = new Date()) {
     ...EXAMPLES.map((e) => `- ${e}`),
     '',
     'Where and how to search:',
-    `- Chinese posts usually call the city ${PLACE.chineseNames.join(' or ')}. Xiaohongshu / RED (小红书, xiaohongshu.com) is the most important source,`,
-    '  then Weibo (微博), WeChat articles (微信公众号, mp.weixin.qq.com) and Dianping (大众点评).',
-    `- Run at least three Chinese searches using the words people actually post with: ${words.zh}.`,
-    `  For example "${city} ${category.zh} ${words.zh.split(',')[0]}", "${city} ${firstHint}", "${city} 今日羊毛", and the same with site:xiaohongshu.com.`,
+    '- Posts like these appear on Xiaohongshu, but Xiaohongshu notes almost never show up in web search results. Most of them repost',
+    "  offers that started on a brand's own website or social accounts, a shopping centre's page, local media or a deal site. Search those",
+    '  original sources first, mostly in English.',
+    `- Where these offers usually start for this category: ${category.sources ?? 'brand websites and local Manchester media.'}`,
+    '- Also check Manchester-wide sources for anything in this category: Manchester Evening News, Secret Manchester, Manchester’s Finest,',
+    '  Confidentials, I Love Manchester, Visit Manchester, Manchester Arndale and Trafford Centre pages, Eventbrite and Allevents.',
+    `- Then run one or two Chinese searches with the words people post with (${words.zh}), e.g. "${city} ${firstHint} ${words.zh.split(',')[0]}"`,
+    `  or "${city} 今日羊毛". Chinese posts call the city ${PLACE.chineseNames.join(' or ')}. Use anything you find from Xiaohongshu (小红书), Weibo (微博),`,
+    '  WeChat articles (微信公众号) or Dianping (大众点评), but do not spend more than two searches on Chinese sites.',
     `- Search words for this category: ${category.hints ?? category.zh}.`,
-    '- Also run at least one English search (brand and shop sites, Instagram, Manchester Evening News, Secret Manchester, Time Out).',
-    '- Search snippets often leave out dates. Use web_fetch to open the most promising posts, especially xiaohongshu.com notes,',
-    '  to check when it was posted, when the event or offer runs, and the details. Public notes can usually be opened on the website.',
+    '- Search snippets often leave out dates. Use web_fetch to open the most promising pages to check when the event or offer runs.',
     category.name === 'Supermarket finds'
       ? '- For supermarket finds, also include well-reviewed products worth buying (好物推荐) posted in the last two weeks, even without a discount.'
       : '',
     '',
     'Rules:',
-    '- Only things in Manchester. Skip other cities.',
+    '- Only things she can use in Manchester: local events and shops, plus UK-wide offers from chains and supermarkets that have Manchester',
+    '  branches. Skip things only available in other cities.',
     '- Only things that are on today or start within the next 30 days, or posts from the last 14 days about something still available. Skip anything that has ended, including one-day events before today.',
     '- Every item needs a real source URL from your searches. Do not invent details; leave a field empty if unknown.',
     `- Return at most ${MAX_FINDINGS} items, most useful first. Remove duplicates (the same offer posted by several people counts once).`,
@@ -181,7 +185,7 @@ export function cleanFindings(input) {
  * @param {'popup'|'deal'} kind
  * @param {{name: string, zh: string}} category
  */
-export async function runSearch(client, kind, category) {
+export async function runSearch(client, kind, category, { onToolUse = () => {} } = {}) {
   const webSearch = {
     type: 'web_search_20260209',
     name: 'web_search',
@@ -217,6 +221,10 @@ export async function runSearch(client, kind, category) {
       tools: [webSearch, webFetch, REPORT_TOOL],
       messages,
     });
+
+    for (const b of response.content) {
+      if (b.type === 'server_tool_use') onToolUse(b.name, b.input?.query ?? b.input?.url ?? '');
+    }
 
     if (response.stop_reason === 'refusal') {
       throw new Error('The request was declined.');
