@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Popup Local · Manchester</title>
+    <meta name="description" content="New pop-ups and deals in Manchester, found by an AI agent. 曼彻斯特快闪和优惠。" />
+    <meta name="theme-color" content="#FFF8F3" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#17130F" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎪</text></svg>" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div>
+        <h1>Popup Local</h1>
+        <p class="sub"><span id="city">Manchester</span> · <span id="updated">loading…</span></p>
+      </div>
+      <label class="toggle" title="Only show stand-out items">
+        <input type="checkbox" id="starOnly" />
+        <span>★ Stand-out</span>
+      </label>
+    </header>
+
+    <nav class="tabs" role="tablist">
+      <button role="tab" class="tab" data-kind="popup" aria-selected="true">
+        🎪 Pop-ups <span class="zh">快闪</span>
+      </button>
+      <button role="tab" class="tab" data-kind="deal" aria-selected="false">
+        🏷️ Deals <span class="zh">优惠</span>
+      </button>
+    </nav>
+
+    <div class="chips" id="chips" role="toolbar" aria-label="Categories"></div>
+
+    <main id="list" aria-live="polite"></main>
+
+    <footer class="foot">
+      Found by a Claude agent searching the web in English and Chinese (incl. public Xiaohongshu,
+      Weibo and WeChat posts). Always check the source before you go.
+      <a href="https://github.com/nbjdttn/popup-local">About</a>
+    </footer>
+
+    <template id="card">
+      <a class="card" target="_blank" rel="noopener noreferrer">
+        <div class="card-head">
+          <div class="tags">
+            <span class="new" hidden>NEW</span>
+            <span class="star" hidden title="Stand-out">★</span>
+            <span class="brand"></span>
+          </div>
+          <span class="offer" hidden></span>
+        </div>
+        <h2 class="title"></h2>
+        <p class="summary"></p>
+        <p class="meta dates" hidden></p>
+        <p class="meta where" hidden></p>
+        <p class="source"></p>
+      </a>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
