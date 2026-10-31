@@ -1,7 +1,7 @@
 name: Update feed
 
-# Runs the Claude agent, saves results to site/data/feed.json, publishes the
-# page to GitHub Pages, and opens an issue when there are stand-out new finds.
+# Runs the Claude agent, saves results to site/data/feed.json, sends a WeChat
+# message (Server酱) about stand-out new finds, and publishes the page.
 
 on:
   schedule:
@@ -14,6 +14,10 @@ on:
         description: 'Run the agent (untick to only republish the page)'
         type: boolean
         default: true
+      test_wechat:
+        description: 'Send a WeChat test message'
+        type: boolean
+        default: false
   # Republish the page when the site code changes.
   push:
     branches: [main]
@@ -21,7 +25,6 @@ on:
 
 permissions:
   contents: write
-  issues: write
   pages: write
   id-token: write
 
@@ -38,11 +41,11 @@ jobs:
       url: ${{ steps.deploy.outputs.page_url }}
     env:
       RUN_AGENT: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.search) }}
+      PAGE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
-        if: env.RUN_AGENT == 'true'
         with:
           node-version: 22
           cache: npm
@@ -51,11 +54,17 @@ jobs:
         if: env.RUN_AGENT == 'true'
         run: npm ci
 
+      - name: Send a WeChat test message
+        if: github.event_name == 'workflow_dispatch' && inputs.test_wechat
+        env:
+          SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
+        run: node agent/wechat.mjs --test
+
       - name: Run the agent
         if: env.RUN_AGENT == 'true'
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          PAGE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+          SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
         run: npm run update
 
       - name: Save results to the repo
@@ -71,15 +80,6 @@ jobs:
             git pull --rebase origin "${GITHUB_REF_NAME}"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
-
-      - name: Notify about stand-out new finds
-        if: env.RUN_AGENT == 'true' && hashFiles('notify.md') != ''
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh issue create \
-            --title "曼彻斯特新发现：$(TZ=Europe/London date +'%Y年%-m月%-d日 %H:%M')" \
-            --body-file notify.md
 
       - uses: actions/configure-pages@v5
 

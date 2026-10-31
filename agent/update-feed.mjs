@@ -1,6 +1,5 @@
 // Runs the agent for every tab x category and writes site/data/feed.json.
-// Also writes notify.md listing stand-out new items, which the GitHub
-// workflow turns into a GitHub issue (= a notification for repo watchers).
+// Then sends a WeChat message (Server酱) listing stand-out new items.
 //
 // Usage: ANTHROPIC_API_KEY=... node agent/update-feed.mjs
 
@@ -13,10 +12,10 @@ import Anthropic from '@anthropic-ai/sdk';
 
 import { findingKey, runSearch } from './agent.mjs';
 import { CATEGORIES, CONCURRENCY, KINDS, PLACE } from './config.mjs';
+import { buildMessage, sendWeChat } from './wechat.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const FEED_PATH = join(ROOT, 'site', 'data', 'feed.json');
-const NOTIFY_PATH = join(ROOT, 'notify.md');
 
 async function loadPrevious() {
   if (!existsSync(FEED_PATH)) return null;
@@ -71,7 +70,10 @@ export async function updateFeed({ client, previous, now = new Date() }) {
     categories: CATEGORIES.map(({ name, zh, kinds }) => ({ name, zh, kinds: kinds ?? [...KINDS] })),
     feeds: { popup: {}, deal: {} },
   };
+  // The very first run sends a welcome message with today's stand-out items.
+  const welcome = !previous?.updatedAt;
   const notify = [];
+  let newOther = 0;
 
   for (const { kind, category, findings, error } of outcomes) {
     const before = previous?.feeds?.[kind]?.[category.name];
@@ -84,30 +86,31 @@ export async function updateFeed({ client, previous, now = new Date() }) {
     const items = findings.map((f) => ({ ...f, firstSeen: firstSeen.get(findingKey(f)) ?? runAt }));
     feed.feeds[kind][category.name] = { fetchedAt: runAt, findings: items };
 
-    // Only notify about genuinely new items, and not on the very first run for this category.
-    if (before) {
-      for (const f of items) if (f.firstSeen === runAt && f.interesting) notify.push({ kind, category, f });
+    for (const f of items) {
+      if (welcome) {
+        if (f.interesting) notify.push({ kind, category, f });
+      } else if (before && f.firstSeen === runAt) {
+        // Only genuinely new items; a newly added category doesn't flood the first day.
+        if (f.interesting) notify.push({ kind, category, f });
+        else newOther++;
+      }
     }
   }
 
   const failed = outcomes.filter((o) => o.error).length;
-  return { feed, notify, failed, total: outcomes.length };
+  return { feed, notify, newOther, welcome, failed, total: outcomes.length };
 }
 
-export function notifyMarkdown(notify, pageUrl) {
-  const lines = [];
-  for (const kind of KINDS) {
-    const items = notify.filter((n) => n.kind === kind);
-    if (!items.length) continue;
-    lines.push(`### ${kind === 'popup' ? '快闪活动' : '羊毛优惠'}`, '');
-    for (const { category, f } of items) {
-      const extra = [f.offer, f.dates, f.location].filter(Boolean).join(' · ');
-      lines.push(`- **${category.zh}** — [${f.title}](${f.url})${extra ? ` — ${extra}` : ''}`);
-    }
-    lines.push('');
-  }
-  if (pageUrl) lines.push(`查看全部：${pageUrl}`);
-  return lines.join('\n');
+/** Most messages fit in one WeChat card; the rest are counted. */
+const MAX_IN_MESSAGE = 10;
+
+export async function notifyWeChat({ notify, newOther, welcome, sendkey, pageUrl, fetchImpl }) {
+  if (!notify.length) return false;
+  const shown = notify.slice(0, MAX_IN_MESSAGE);
+  const moreCount = newOther + (notify.length - shown.length);
+  const msg = buildMessage(shown, { pageUrl, welcome, moreCount });
+  await sendWeChat({ sendkey, ...msg, fetchImpl });
+  return true;
 }
 
 async function main() {
@@ -117,7 +120,8 @@ async function main() {
   }
   const client = new Anthropic();
   const previous = await loadPrevious();
-  const { feed, notify, failed, total } = await updateFeed({ client, previous });
+  const result = await updateFeed({ client, previous });
+  const { feed, notify, failed, total } = result;
 
   if (failed === total) {
     console.error('Every search failed; leaving the feed unchanged.');
@@ -126,10 +130,19 @@ async function main() {
 
   await writeFile(FEED_PATH, JSON.stringify(feed, null, 2) + '\n');
   console.log(`Wrote ${FEED_PATH} (${total - failed}/${total} searches ok).`);
+  console.log(`${notify.length} stand-out new item(s), ${result.newOther} other new item(s).`);
 
-  if (notify.length) {
-    await writeFile(NOTIFY_PATH, notifyMarkdown(notify, process.env.PAGE_URL));
-    console.log(`${notify.length} stand-out new item(s) written to notify.md.`);
+  const sendkey = process.env.SERVERCHAN_SENDKEY;
+  if (!sendkey) {
+    console.log('SERVERCHAN_SENDKEY not set; skipping WeChat.');
+    return;
+  }
+  try {
+    const sent = await notifyWeChat({ ...result, sendkey, pageUrl: process.env.PAGE_URL });
+    console.log(sent ? 'WeChat message sent.' : 'Nothing stand-out and new; no WeChat message today.');
+  } catch (err) {
+    // Don't lose today's results because the message failed; flag it in the Actions log.
+    console.log(`::warning::WeChat message failed: ${err.message ?? err}`);
   }
 }
 
