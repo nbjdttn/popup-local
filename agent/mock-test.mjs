@@ -203,11 +203,18 @@ const quietClient = new Anthropic({
 const yesterdayFeed = structuredClone(feed);
 const pm = yesterdayFeed.feeds.popup['Pop Mart'].findings; // Labubu, Old news, Robo Shop
 pm.find((f) => f.title === 'Labubu pop-up').ends = '2026-11-01'; // ended before 2 Nov
-Object.assign(pm.find((f) => f.title === 'Old news'), { firstSeen: '2026-10-10T07:00:00.000Z', lastSeen: '2026-10-10T07:00:00.000Z' });
+// no end date and not seen for over 30 days → dropped
+Object.assign(pm.find((f) => f.title === 'Old news'), { firstSeen: '2026-09-20T07:00:00.000Z', lastSeen: '2026-09-20T07:00:00.000Z' });
+// has an end date in the future → kept however long ago it was last seen
+pm.push({ ...item('Long exhibition'), ends: '2026-12-31', firstSeen: '2026-09-01T07:00:00.000Z', lastSeen: '2026-09-01T07:00:00.000Z' });
 const nov2 = new Date('2026-11-02T07:00:00.000Z');
 const day2 = await updateFeed({ client: quietClient, previous: yesterdayFeed, now: nov2 });
 const kept = day2.feed.feeds.popup['Pop Mart'].findings;
-assert.deepEqual(kept.map((f) => f.title), ['Brand new drop', 'Robo Shop opening'], 'new first, earlier kept, ended/stale dropped');
+assert.deepEqual(
+  kept.map((f) => f.title),
+  ['Brand new drop', 'Robo Shop opening', 'Long exhibition'],
+  'new first; earlier items kept until they end; ended and long-unseen undated items dropped',
+);
 assert.equal(kept[1].firstSeen, now.toISOString(), 'earlier item keeps the day it was first found');
 assert.equal(kept[0].ends, '2026-11-09');
 const pmPrompt = prompts.find((p) => p.includes('(Pop Mart)') && p.includes('pop-up shops'));

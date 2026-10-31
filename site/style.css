@@ -176,10 +176,6 @@ main {
   border-color: var(--accent);
 }
 
-.card.is-ended {
-  opacity: 0.6;
-}
-
 /* The title link covers the whole card, so tapping anywhere opens the post. */
 .title-link {
   color: inherit;
@@ -234,15 +230,6 @@ main {
 .tab:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
-}
-
-.ended {
-  font-size: 10px;
-  font-weight: 800;
-  color: var(--muted);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: 0 5px;
 }
 
 .day {

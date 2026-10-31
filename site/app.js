@@ -80,6 +80,17 @@
   let pins = loadPins();
   const isPinned = (f) => pins.some((p) => p.key === keyOf(f));
 
+  /** Saved items whose end date has passed are removed automatically. */
+  function dropEndedPins() {
+    const latest = (p) =>
+      (state.feed?.feeds?.[p.kind]?.[p.category]?.findings ?? []).find((f) => keyOf(f) === p.key) ?? p.item;
+    const kept = pins.filter((p) => !(latest(p).ends && latest(p).ends < today()));
+    if (kept.length !== pins.length) {
+      pins = kept;
+      store.set('pins', JSON.stringify(pins));
+    }
+  }
+
   function togglePin(f, kind, category) {
     const key = keyOf(f);
     pins = isPinned(f)
@@ -117,7 +128,8 @@
   }
 
   function itemsFor(kind, name) {
-    let items = state.feed?.feeds?.[kind]?.[name]?.findings ?? [];
+    // Hide anything that ended since the last update (e.g. a one-day event yesterday).
+    let items = (state.feed?.feeds?.[kind]?.[name]?.findings ?? []).filter((f) => !(f.ends && f.ends < today()));
     if (state.starOnly) items = items.filter((f) => f.interesting);
     return items;
   }
@@ -180,13 +192,10 @@
       el.textContent = text || '';
       el.hidden = !text;
     };
-    const ended = Boolean(f.ends && f.ends < today());
     const pinned = isPinned(f);
 
-    node.classList.toggle('is-ended', ended);
     node.classList.toggle('is-pinned', pinned);
-    node.querySelector('.new').hidden = !(f.firstSeen && dayOf(f.firstSeen) === today()) || ended;
-    node.querySelector('.ended').hidden = !ended;
+    node.querySelector('.new').hidden = !(f.firstSeen && dayOf(f.firstSeen) === today());
     node.querySelector('.star').hidden = !f.interesting;
     set('.brand', f.brand);
     set('.offer', f.offer);
@@ -286,6 +295,7 @@
 
   function render() {
     document.body.dataset.kind = state.kind;
+    dropEndedPins();
     fixCategory();
     for (const tab of document.querySelectorAll('.tab')) {
       tab.setAttribute('aria-selected', String(tab.dataset.kind === state.kind));

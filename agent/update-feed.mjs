@@ -47,15 +47,18 @@ async function pool(items, limit, worker) {
   return results;
 }
 
-/** Items not seen again are kept this long (unless their end date has passed). */
-const KEEP_DAYS = 14;
-const MAX_ITEMS_PER_CATEGORY = 40;
+/** Items with no end date are kept this long after the agent last saw them. */
+const KEEP_DAYS_WITHOUT_END_DATE = 30;
+const MAX_ITEMS_PER_CATEGORY = 60;
 
-/** Still worth showing: not past its end date, and seen within KEEP_DAYS. */
+/**
+ * Still on: items with an end date stay until that date has passed;
+ * items without one stay for KEEP_DAYS_WITHOUT_END_DATE after they were last seen.
+ */
 export function stillOn(item, today, now) {
-  if (item.ends && item.ends < today) return false;
+  if (item.ends) return item.ends >= today;
   const seen = new Date(item.lastSeen ?? item.firstSeen ?? 0).getTime();
-  return now.getTime() - seen <= KEEP_DAYS * 24 * 60 * 60 * 1000;
+  return now.getTime() - seen <= KEEP_DAYS_WITHOUT_END_DATE * 24 * 60 * 60 * 1000;
 }
 
 export async function updateFeed({ client, previous, now = new Date() }) {

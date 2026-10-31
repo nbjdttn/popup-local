@@ -6,6 +6,8 @@ A web page, entirely in Chinese, that lists **new pop-ups** and **new deals in M
 - **羊毛优惠 (Deals)**: 羊毛 freebies, buy-one-get-one-free, discounts, coupon codes, student offers and supermarket finds.
 - Categories: 泡泡玛特, 美食, 奶茶咖啡, 美妆, 时尚服饰, 潮玩手办 on both tabs, plus 超市好物 (Lidl, Aldi, Tesco, 华人超市…) on 羊毛优惠 only.
 - **新** marks items found in the last 3 days. **★** marks stand-out items (new openings, limited drops, discounts of 30% or more, freebies). The **★ 只看精选** switch shows only those.
+- **Earlier days are kept.** Each run adds to the list, grouped by the day each item was first found (今天, 昨天, 11月2日…). An item with an end date stays until that date has passed; one with no end date stays for 30 days after the agent last saw it. Anything that has ended is removed.
+- **♡ 收藏 (save):** saved items are pinned to the top of their category and listed under the **❤️ 收藏** chip, even after the agent stops listing them. They're removed automatically once they've ended. Saved items are stored in her phone's browser (localStorage), so they don't carry over to another phone.
 
 ## How it works
 
