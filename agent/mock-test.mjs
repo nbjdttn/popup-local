@@ -178,6 +178,43 @@ const seen = [];
 await runSearch(client, 'popup', CATEGORIES[0], { onToolUse: (name, q) => seen.push(`${name}:${q}`) });
 assert.deepEqual(seen, ['web_search:Pop Mart Manchester event']);
 
+// History: on a later day, earlier items are kept, ended or stale ones dropped,
+// and the agent is told what is already on her list.
+const prompts = [];
+const quietClient = new Anthropic({
+  apiKey: 'sk-test',
+  maxRetries: 0,
+  fetch: async (_url, init) => {
+    const body = JSON.parse(init.body);
+    prompts.push(body.messages[0].content);
+    const findings = body.messages[0].content.includes('(Pop Mart)') && body.messages[0].content.includes('pop-up shops')
+      ? [{ ...item('Brand new drop', true), ends: '2026-11-09' }, { ...item('Already over', true), ends: '2026-11-01' }]
+      : [];
+    return new Response(
+      JSON.stringify({
+        id: 'msg_q', type: 'message', role: 'assistant', model: 'claude-opus-5-5', stop_sequence: null, stop_details: null,
+        usage: { input_tokens: 1, output_tokens: 1 }, stop_reason: 'tool_use',
+        content: [{ type: 'tool_use', id: 'toolu_q', name: 'report_findings', input: { findings } }],
+      }),
+      { status: 200, headers: { 'content-type': 'application/json' } },
+    );
+  },
+});
+const yesterdayFeed = structuredClone(feed);
+const pm = yesterdayFeed.feeds.popup['Pop Mart'].findings; // Labubu, Old news, Robo Shop
+pm.find((f) => f.title === 'Labubu pop-up').ends = '2026-11-01'; // ended before 2 Nov
+Object.assign(pm.find((f) => f.title === 'Old news'), { firstSeen: '2026-10-10T07:00:00.000Z', lastSeen: '2026-10-10T07:00:00.000Z' });
+const nov2 = new Date('2026-11-02T07:00:00.000Z');
+const day2 = await updateFeed({ client: quietClient, previous: yesterdayFeed, now: nov2 });
+const kept = day2.feed.feeds.popup['Pop Mart'].findings;
+assert.deepEqual(kept.map((f) => f.title), ['Brand new drop', 'Robo Shop opening'], 'new first, earlier kept, ended/stale dropped');
+assert.equal(kept[1].firstSeen, now.toISOString(), 'earlier item keeps the day it was first found');
+assert.equal(kept[0].ends, '2026-11-09');
+const pmPrompt = prompts.find((p) => p.includes('(Pop Mart)') && p.includes('pop-up shops'));
+assert.match(pmPrompt, /Already on her list[\s\S]*Robo Shop opening \| https:\/\/example\.com/);
+assert.doesNotMatch(pmPrompt, /Labubu pop-up \|/, 'ended items are not offered as known');
+assert.deepEqual(day2.notify.map((n) => n.f.title), ['Brand new drop']);
+
 console.log('PASS — request shape, pause_turn, merge, WeChat message, prompt');
 console.log(`\nSample WeChat message (${msg.title}):\n${msg.desp}`);
 console.log(`\nSample welcome message (${sent[0].body.title}):\n${md}`);

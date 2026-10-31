@@ -39,6 +39,7 @@ const REPORT_TOOL = {
             'url',
             'source',
             'interesting',
+            'ends',
           ],
           properties: {
             title: { type: 'string', description: 'Short headline in Simplified Chinese.' },
@@ -63,6 +64,11 @@ const REPORT_TOOL = {
               description:
                 'Where it was found, in Chinese, e.g. "小红书", "微博", "微信公众号", "大众点评", "Instagram", ' +
                 '"曼彻斯特晚报", "品牌官网".',
+            },
+            ends: {
+              type: 'string',
+              description:
+                'Last day it is on or available, as YYYY-MM-DD (Manchester time). Empty string if ongoing or unknown.',
             },
             interesting: {
               type: 'boolean',
@@ -96,7 +102,7 @@ const EXAMPLES = [
 ];
 
 /** Today's date in Manchester, as YYYY-MM-DD. */
-function manchesterDate(now) {
+export function manchesterDate(now) {
   return now.toLocaleDateString('en-CA', { timeZone: PLACE.timezone });
 }
 
@@ -104,8 +110,16 @@ function manchesterDate(now) {
  * @param {'popup'|'deal'} kind
  * @param {{name: string, zh: string, hints?: string}} category
  */
-export function buildPrompt(kind, category, now = new Date()) {
+export function buildPrompt(kind, category, now = new Date(), known = []) {
   const words = KIND_WORDS[kind];
+  const knownBlock = known.length
+    ? [
+        '',
+        'Already on her list from earlier days. If you find the same thing again, copy its title and url exactly so it is not',
+        'listed twice, and include it only if it is still on. Do not re-list anything that has ended.',
+        ...known.slice(0, 30).map((k) => `- ${k.title} | ${k.url}`),
+      ]
+    : [];
   const [city] = PLACE.chineseNames;
   const firstHint = (category.hints ?? category.zh).split(',')[0].trim();
 
@@ -142,6 +156,9 @@ export function buildPrompt(kind, category, now = new Date()) {
     '- Mark interesting = true for free gifts, buy-one-get-one-free, 30% or more off, one-day or first-N-people events, limited drops and new openings.',
     '- Write every field in Simplified Chinese (简体中文), even when the source is in English. Keep brand names recognisable and',
     '  give English place names next to the Chinese so she can find them on a map.',
+    '- Fill in ends with the last day as YYYY-MM-DD whenever the dates are known (e.g. a one-day event today ends today).',
+    ...knownBlock,
+    '',
     '- When you are done, call the report_findings tool once with the list.',
   ]
     .filter((line, i, all) => line !== '' || (all[i - 1] ?? '') !== '')
@@ -169,6 +186,7 @@ export function cleanFindings(input) {
       url: str(raw?.url),
       source: str(raw?.source),
       interesting: raw?.interesting === true,
+      ends: /^\d{4}-\d{2}-\d{2}$/.test(str(raw?.ends)) ? str(raw?.ends) : '',
     };
     if (!f.title || !/^https?:\/\//i.test(f.url)) continue;
     const key = findingKey(f);
@@ -185,7 +203,7 @@ export function cleanFindings(input) {
  * @param {'popup'|'deal'} kind
  * @param {{name: string, zh: string}} category
  */
-export async function runSearch(client, kind, category, { onToolUse = () => {} } = {}) {
+export async function runSearch(client, kind, category, { onToolUse = () => {}, known = [] } = {}) {
   const webSearch = {
     type: 'web_search_20260209',
     name: 'web_search',
@@ -207,7 +225,7 @@ export async function runSearch(client, kind, category, { onToolUse = () => {} }
     max_content_tokens: 8000,
   };
 
-  const messages = [{ role: 'user', content: buildPrompt(kind, category) }];
+  const messages = [{ role: 'user', content: buildPrompt(kind, category, new Date(), known) }];
 
   for (let turn = 0; turn < MAX_TURNS; turn++) {
     const response = await client.beta.messages.create({

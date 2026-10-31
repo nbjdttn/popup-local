@@ -41,21 +41,25 @@
     </footer>
 
     <template id="card">
-      <a class="card" target="_blank" rel="noopener noreferrer">
+      <article class="card">
         <div class="card-head">
           <div class="tags">
             <span class="new" hidden>新</span>
+            <span class="ended" hidden>已结束</span>
             <span class="star" hidden title="精选">★</span>
             <span class="brand"></span>
           </div>
           <span class="offer" hidden></span>
         </div>
-        <h2 class="title"></h2>
+        <h2 class="title"><a class="title-link" target="_blank" rel="noopener noreferrer"></a></h2>
         <p class="summary"></p>
         <p class="meta dates" hidden></p>
         <p class="meta where" hidden></p>
-        <p class="source"></p>
-      </a>
+        <div class="card-foot">
+          <a class="source" target="_blank" rel="noopener noreferrer"></a>
+          <button type="button" class="pin" aria-pressed="false">♡ 收藏</button>
+        </div>
+      </article>
     </template>
 
     <script src="app.js"></script>

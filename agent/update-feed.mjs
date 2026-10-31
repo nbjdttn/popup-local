@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url';
 
 import Anthropic from '@anthropic-ai/sdk';
 
-import { findingKey, runSearch } from './agent.mjs';
+import { findingKey, manchesterDate, runSearch } from './agent.mjs';
 import { CATEGORIES, CONCURRENCY, KINDS, PLACE } from './config.mjs';
 import { buildMessage, sendWeChat } from './wechat.mjs';
 
@@ -47,9 +47,23 @@ async function pool(items, limit, worker) {
   return results;
 }
 
+/** Items not seen again are kept this long (unless their end date has passed). */
+const KEEP_DAYS = 14;
+const MAX_ITEMS_PER_CATEGORY = 40;
+
+/** Still worth showing: not past its end date, and seen within KEEP_DAYS. */
+export function stillOn(item, today, now) {
+  if (item.ends && item.ends < today) return false;
+  const seen = new Date(item.lastSeen ?? item.firstSeen ?? 0).getTime();
+  return now.getTime() - seen <= KEEP_DAYS * 24 * 60 * 60 * 1000;
+}
+
 export async function updateFeed({ client, previous, now = new Date() }) {
   const runAt = now.toISOString();
+  const today = manchesterDate(now);
   const jobs = searchJobs();
+  const earlier = (kind, category) =>
+    (previous?.feeds?.[kind]?.[category.name]?.findings ?? []).filter((f) => stillOn(f, today, now));
 
   const outcomes = await pool(jobs, CONCURRENCY, async ({ kind, category }) => {
     const label = `${kind}/${category.name}`;
@@ -57,7 +71,8 @@ export async function updateFeed({ client, previous, now = new Date() }) {
     const tools = [];
     const onToolUse = (name, detail) => tools.push(`    ${name === 'web_fetch' ? 'open  ' : 'search'} ${detail}`);
     try {
-      const findings = await runSearch(client, kind, category, { onToolUse });
+      const known = earlier(kind, category).map(({ title, url }) => ({ title, url }));
+      const findings = await runSearch(client, kind, category, { onToolUse, known });
       console.log(`✓ ${label}: ${findings.length} items in ${Math.round((Date.now() - started) / 1000)}s`);
       if (tools.length) console.log(tools.join('\n'));
       return { kind, category, findings };
@@ -81,13 +96,20 @@ export async function updateFeed({ client, previous, now = new Date() }) {
 
   for (const { kind, category, findings, error } of outcomes) {
     const before = previous?.feeds?.[kind]?.[category.name];
+    const kept = earlier(kind, category);
     if (error) {
-      // Keep the last good results so the page isn't emptied by one failed search.
-      feed.feeds[kind][category.name] = { ...(before ?? { findings: [] }), error };
+      // Keep earlier results so the page isn't emptied by one failed search.
+      feed.feeds[kind][category.name] = { ...(before ?? {}), findings: kept, error };
       continue;
     }
-    const firstSeen = new Map((before?.findings ?? []).map((f) => [findingKey(f), f.firstSeen]));
-    const items = findings.map((f) => ({ ...f, firstSeen: firstSeen.get(findingKey(f)) ?? runAt }));
+    // Today's finds (keeping the day each was first seen), then earlier items not found again today.
+    const keptByKey = new Map(kept.map((f) => [findingKey(f), f]));
+    const found = findings
+      .filter((f) => !f.ends || f.ends >= today)
+      .map((f) => ({ ...f, firstSeen: keptByKey.get(findingKey(f))?.firstSeen ?? runAt, lastSeen: runAt }));
+    const foundKeys = new Set(found.map(findingKey));
+    const carried = kept.filter((f) => !foundKeys.has(findingKey(f)));
+    const items = [...found, ...carried].slice(0, MAX_ITEMS_PER_CATEGORY);
     feed.feeds[kind][category.name] = { fetchedAt: runAt, findings: items };
 
     for (const f of items) {
