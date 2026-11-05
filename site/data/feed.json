@@ -1,6 +1,6 @@
 {
   "city": "Manchester",
-  "updatedAt": "2026-11-04T15:48:26.033Z",
+  "updatedAt": "2026-11-05T15:50:21.688Z",
   "categories": [
     {
       "name": "Pop Mart",
@@ -61,12 +61,138 @@
   "feeds": {
     "popup": {
       "Pop Mart": {
-        "fetchedAt": "2026-11-04T15:48:26.033Z",
+        "fetchedAt": "2026-11-05T15:50:21.688Z",
         "findings": []
       },
       "Food": {
-        "fetchedAt": "2026-11-04T15:48:26.033Z",
+        "fetchedAt": "2026-11-05T15:50:21.688Z",
         "findings": [
+          {
+            "title": "Deansgate新场地Resident 11月12日开业：地下室深夜切片披萨Electric Pizza Shop",
+            "brand": "Resident / Electric Pizza Shop",
+            "summary": "新的地下音乐场地Resident在140 Deansgate开业，首先开放的是红灯地下酒吧Electric Pizza Shop，提供深夜切片披萨、鸡尾酒和马提尼。周四至周六有免费DJ派对，之后还计划开亚洲、拉美和墨西哥厨房。",
+            "location": "迪恩斯盖特 140 Deansgate",
+            "dates": "11月12日（周四）开业",
+            "offer": "DJ派对免费入场",
+            "url": "https://www.manchestersfinest.com/eating-and-drinking/new-restaurants-and-bars-opening-in-november-2026/",
+            "source": "Manchester's Finest",
+            "interesting": true,
+            "ends": "",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Royal Nawaab旗下高端包房Hukum 11月23日开业",
+            "brand": "Hukum（The Royal Nawaab）",
+            "summary": "斯托克波特大型印度餐厅Royal Nawaab在Stockport金字塔大楼内新开私人包房餐饮Hukum，设独立入口、DJ台和带暖气的水烟露台，可售酒。套餐每人200镑起。",
+            "location": "斯托克波特金字塔 Stockport Pyramid",
+            "dates": "11月23日开业",
+            "offer": "",
+            "url": "https://www.manchestersfinest.com/eating-and-drinking/new-restaurants-and-bars-opening-in-november-2026/",
+            "source": "Manchester's Finest",
+            "interesting": true,
+            "ends": "",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Stretford新开桌游咖啡馆Kobold Union",
+            "brand": "Kobold Union",
+            "summary": "Stretford商业街新开桌游咖啡馆，游戏库很大，可以预约，也可以直接进店，适合和朋友一起去。",
+            "location": "斯特雷特福德 Stretford High Street",
+            "dates": "已开业",
+            "offer": "",
+            "url": "https://www.manchestersfinest.com/eating-and-drinking/new-restaurants-and-bars-opening-in-november-2026/",
+            "source": "Manchester's Finest",
+            "interesting": true,
+            "ends": "",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "网红咖啡200 Degrees即将登陆Altrincham",
+            "brand": "200 Degrees",
+            "summary": "来自诺丁汉的精品咖啡连锁200 Degrees即将在Altrincham的Stamford Quarter开店，以店面设计、手工烘焙点心和精品冲煮出名。",
+            "location": "奥尔特灵厄姆 Stamford Quarter, Altrincham",
+            "dates": "即将开业（日期未公布）",
+            "offer": "",
+            "url": "https://www.manchestersfinest.com/eating-and-drinking/new-restaurants-and-bars-opening-in-november-2026/",
+            "source": "Manchester's Finest",
+            "interesting": true,
+            "ends": "",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Reserve Wines接手Chorlton老酒铺，新增堂饮座位",
+            "brand": "Reserve Wines",
+            "summary": "Reserve Wines接手Chorlton的Tiny's Tipple，新店会增加座位并提供单杯酒，还有Chorlton Cheesemongers等店的小食。",
+            "location": "乔尔顿 Chorlton",
+            "dates": "即将开业（日期未公布）",
+            "offer": "",
+            "url": "https://www.manchestersfinest.com/eating-and-drinking/new-restaurants-and-bars-opening-in-november-2026/",
+            "source": "Manchester's Finest",
+            "interesting": true,
+            "ends": "",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Wolf at the Door 欢乐时段：汉堡、丼饭6镑",
+            "brand": "Wolf at the Door",
+            "summary": "周一至周五15:00–19:00，汉堡和丼饭（donburi）每份6镑，红酒和品脱啤酒3.5镑，鸡尾酒6.5镑。",
+            "location": "北区 30-32 Thomas St, Northern Quarter",
+            "dates": "11月，周一至周五 15:00–19:00",
+            "offer": "汉堡/丼饭6镑",
+            "url": "https://confidentials.com/manchester/manchester-restaurant-bar-deals-1",
+            "source": "Confidentials",
+            "interesting": false,
+            "ends": "",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Tampopo隐藏菜单16镑套餐，晚9点后红酒半价",
+            "brand": "Tampopo",
+            "summary": "点餐时说要Secret Menu，可以选一大份、一小份加一杯饮品，共16镑（周一至周五18点前和每天21点后供应）；21点后还可以加点半价瓶装红酒。",
+            "location": "Albert Square店 和 Corn Exchange店",
+            "dates": "11月，周一至周五18点前及每天21点后",
+            "offer": "套餐16镑，红酒半价",
+            "url": "https://confidentials.com/manchester/manchester-restaurant-bar-deals-1",
+            "source": "Confidentials",
+            "interesting": true,
+            "ends": "",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Crazy Pedros工作日午餐：两片披萨加饮料6镑",
+            "brand": "Crazy Pedros",
+            "summary": "工作日12:00–15:00，两片披萨加一杯软饮6镑，换成啤酒加1镑。17:00–22:00欢乐时段，切片披萨3镑，整个披萨12.5镑。",
+            "location": "Bridge Street店 和 北区 Northern Quarter店",
+            "dates": "11月，工作日",
+            "offer": "两片披萨+饮料6镑",
+            "url": "https://confidentials.com/manchester/manchester-restaurant-bar-deals-1",
+            "source": "Confidentials",
+            "interesting": false,
+            "ends": "",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Maray 周一素食菜品半价（蓝光卡/餐饮从业者）",
+            "brand": "Maray",
+            "summary": "每周一全天，持Blue Light Card或餐饮从业者（出示工资单）可享素食和纯素菜品半价，不用预约。",
+            "location": "Brazennose St, 市中心 City Centre",
+            "dates": "每周一",
+            "offer": "素食菜品五折（限特定人群）",
+            "url": "https://confidentials.com/manchester/manchester-restaurant-bar-deals-1",
+            "source": "Confidentials",
+            "interesting": false,
+            "ends": "",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
           {
             "title": "Counter Manchester 11月9日新店开业",
             "brand": "Counter Manchester（Open Restaurant Group）",
@@ -322,12 +448,12 @@
         ]
       },
       "Bubble tea & Coffee": {
-        "fetchedAt": "2026-11-04T15:48:26.033Z",
+        "fetchedAt": "2026-11-05T15:50:21.688Z",
         "findings": [
           {
             "title": "越南咖啡馆Coco Tang 11月24日斯平宁菲尔兹开业",
             "brand": "Coco Tang",
-            "summary": "受河内启发的越南“餐厅＋咖啡馆＋鸡尾酒吧”即将在Spinningfields开业，共有两层。白天供应越南法棍（bánh mì）和亚洲风味烘焙，晚上供应越南菜和鸡尾酒。",
+            "summary": "越南咖啡馆Coco Tang将于11月24日在斯平宁菲尔兹开新店。这条之前已经找到过，今天没能重新核实。",
             "location": "斯平宁菲尔兹 Spinningfields",
             "dates": "11月24日开业",
             "offer": "",
@@ -336,26 +462,12 @@
             "interesting": true,
             "ends": "2026-11-24",
             "firstSeen": "2026-11-04T15:48:26.033Z",
-            "lastSeen": "2026-11-04T15:48:26.033Z"
-          },
-          {
-            "title": "200 Degrees咖啡阿尔特灵厄姆新店即将开业",
-            "brand": "200 Degrees Coffee",
-            "summary": "诺丁汉起家的精品咖啡连锁即将在Altrincham市中心的Stamford Quarter开新店，以店内设计、手工烘焙点心和多种精品冲煮方式出名。",
-            "location": "阿尔特灵厄姆 Stamford Quarter, Altrincham",
-            "dates": "即将开业（具体日期未公布）",
-            "offer": "",
-            "url": "https://www.manchestersfinest.com/eating-and-drinking/new-restaurants-and-bars-opening-in-november-2026/",
-            "source": "Manchester's Finest",
-            "interesting": true,
-            "ends": "",
-            "firstSeen": "2026-11-04T15:48:26.033Z",
-            "lastSeen": "2026-11-04T15:48:26.033Z"
+            "lastSeen": "2026-11-05T15:50:21.688Z"
           },
           {
             "title": "曼彻斯特咖啡节 2026（11月20–22日）",
             "brand": "Manchester Coffee Festival 曼彻斯特咖啡节",
-            "summary": "一年一度的曼彻斯特咖啡节，有咖啡品牌摊位、试饮和活动。这条是之前的列表里已经有的，今天没能重新核实细节。",
+            "summary": "曼彻斯特咖啡节11月20日到22日举办，有咖啡品牌摊位和试饮。这条之前已经找到过，今天没能重新核实。",
             "location": "曼彻斯特 Manchester",
             "dates": "11月20日–22日",
             "offer": "",
@@ -364,7 +476,21 @@
             "interesting": false,
             "ends": "2026-11-22",
             "firstSeen": "2026-10-31T20:58:42.001Z",
-            "lastSeen": "2026-11-03T15:29:55.060Z"
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "200 Degrees咖啡阿尔特灵厄姆新店即将开业",
+            "brand": "200 Degrees",
+            "summary": "连锁咖啡店200 Degrees快要在阿尔特灵厄姆开新店，计划11月开业。这条之前已经找到过，今天没能重新核实。",
+            "location": "阿尔特灵厄姆 Altrincham",
+            "dates": "11月（具体日期未知）",
+            "offer": "",
+            "url": "https://www.manchestersfinest.com/eating-and-drinking/new-restaurants-and-bars-opening-in-november-2026/",
+            "source": "Manchester's Finest",
+            "interesting": true,
+            "ends": "",
+            "firstSeen": "2026-11-04T15:48:26.033Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
           },
           {
             "title": "Costa Express 咖啡机饮品一周特价£1.99",
@@ -383,40 +509,26 @@
         ]
       },
       "Beauty": {
-        "fetchedAt": "2026-11-04T15:48:26.033Z",
+        "fetchedAt": "2026-11-05T15:50:21.688Z",
         "findings": [
           {
-            "title": "Superdrug黑五大促明天开始，门店和网上都有",
-            "brand": "Superdrug",
-            "summary": "Superdrug黑五大促已从11月4日起在门店和网上开始，一直到12月1日。香水、美妆和口腔护理最低四折（最高减60%），例如Jimmy Choo Flash香水£23（原价£58）。",
-            "location": "曼城各Superdrug门店（如阿戴尔购物中心 Arndale、特拉福德中心 Trafford Centre）",
-            "dates": "11月4日–12月1日",
-            "offer": "最低四折（最高减60%）",
-            "url": "https://www.superdrug.com/black-friday",
-            "source": "品牌官网",
+            "title": "SACHEU快闪路虎车开进Spinningfields，免费送小样",
+            "brand": "SACHEU",
+            "summary": "韩系美妆品牌SACHEU的快闪路虎车11月15日开到The Avenue，现场送免费小样（送完为止），可以试色找适合自己的色号，还有拍照点和抽奖。免费报名，但报名不保证能进场，按到场先后排队。",
+            "location": "斯平宁菲尔兹 The Avenue, Spinningfields",
+            "dates": "11月15日（周日）11:00–16:00",
+            "offer": "免费小样（送完即止）",
+            "url": "https://allevents.in/manchester/sacheu-road-trip-manchester/100002004388729647",
+            "source": "Allevents",
             "interesting": true,
-            "ends": "2026-12-01",
-            "firstSeen": "2026-11-03T15:29:55.060Z",
-            "lastSeen": "2026-11-04T15:48:26.033Z"
-          },
-          {
-            "title": "Boots满£50送护肤礼盒，No7部分晚霜半价",
-            "brand": "Boots",
-            "summary": "Boots每单满£50可领一个免费护肤礼盒，截至11月28日。注意：No7 8折码已经过期，半价晚霜请以官网为准。",
-            "location": "",
-            "dates": "11月28日截止",
-            "offer": "满£50送护肤礼盒",
-            "url": "https://sheerluxe.com/vouchers/boots.com",
-            "source": "折扣网站 SheerLuxe",
-            "interesting": true,
-            "ends": "2026-11-28",
-            "firstSeen": "2026-11-03T15:29:55.060Z",
-            "lastSeen": "2026-11-04T15:48:26.033Z"
+            "ends": "2026-11-15",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
           },
           {
             "title": "Oriflame圣诞美妆快闪登陆特拉福德中心",
             "brand": "Oriflame 欧瑞莲",
-            "summary": "瑞典美妆品牌Oriflame在特拉福德中心办圣诞主题快闪，有互动美妆体验区和独家产品展示，11月14–16日共三天。",
+            "summary": "瑞典美妆品牌Oriflame在特拉福德中心办圣诞主题沉浸式快闪，有互动美妆区和独家产品展示。",
             "location": "特拉福德中心 Trafford Centre",
             "dates": "11月14日–16日",
             "offer": "",
@@ -425,7 +537,77 @@
             "interesting": true,
             "ends": "2026-11-16",
             "firstSeen": "2026-11-01T14:32:50.755Z",
-            "lastSeen": "2026-11-04T15:48:26.033Z"
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Superdrug黑五大促明天开始，门店和网上都有",
+            "brand": "Superdrug",
+            "summary": "Superdrug黑五活动11月4日已经开始，持续到12月1日，部分欧莱雅彩妆买三付二。每项优惠的时间可能不一样，售完即止。",
+            "location": "曼城各Superdrug门店及网店",
+            "dates": "11月4日–12月1日",
+            "offer": "部分商品买三付二等",
+            "url": "https://www.superdrug.com/black-friday",
+            "source": "品牌官网",
+            "interesting": false,
+            "ends": "2026-12-01",
+            "firstSeen": "2026-11-03T15:29:55.060Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Boots满£50送护肤礼盒，No7部分晚霜半价",
+            "brand": "Boots",
+            "summary": "优惠码网站本月还在更新Boots的满额送护肤礼盒活动，另外App下单满£25可享九折。",
+            "location": "曼城各Boots门店及网店",
+            "dates": "11月",
+            "offer": "满额送护肤礼盒；App满£25九折",
+            "url": "https://sheerluxe.com/vouchers/boots.com",
+            "source": "优惠码网站",
+            "interesting": false,
+            "ends": "",
+            "firstSeen": "2026-11-03T15:29:55.060Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "ESPA圣诞护肤之夜，在King Street Townhouse水疗中心",
+            "brand": "ESPA × King Street Townhouse",
+            "summary": "在King Street Townhouse的水疗中心办一场ESPA圣诞护肤之夜，有护肤体验、感官小礼和送礼灵感，门票含迎宾饮品和小食。",
+            "location": "国王街 King Street Townhouse, 市中心",
+            "dates": "11月19日 16:00–19:00",
+            "offer": "门票£17",
+            "url": "https://allevents.in/manchester/beauty",
+            "source": "Allevents",
+            "interesting": false,
+            "ends": "2026-11-19",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Bperfect阿戴尔旗舰店变装妆容教学夜",
+            "brand": "Bperfect Cosmetics",
+            "summary": "Bperfect在阿戴尔的大店办妆容活动，由Bella B Campbell一步步教变装妆，现场有茶点，要消费满£30才能参加。",
+            "location": "阿戴尔购物中心 Bperfect Megastore, Manchester Arndale",
+            "dates": "11月22日 16:00–19:00",
+            "offer": "需消费满£30",
+            "url": "https://allevents.in/manchester/makeup-and-mayhem/100002003857735429",
+            "source": "Allevents",
+            "interesting": false,
+            "ends": "2026-11-22",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Skinfluence护肤×普拉提焕肤体验，送专属代金券",
+            "brand": "Skinfluence Dermaesthetics × Pure Align Studio",
+            "summary": "普拉提加护肤的体验活动，有护肤品、抹茶和专属代金券，门票£33。",
+            "location": "Pure Align Studios",
+            "dates": "11月7日（周六）12:00",
+            "offer": "门票£33，送专属代金券",
+            "url": "https://allevents.in/manchester/beauty",
+            "source": "Allevents",
+            "interesting": false,
+            "ends": "2026-11-07",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
           },
           {
             "title": "Valentino Vendetta香水免费小样，限4万份",
@@ -498,8 +680,92 @@
         ]
       },
       "Fashion": {
-        "fetchedAt": "2026-11-04T15:48:26.033Z",
+        "fetchedAt": "2026-11-05T15:50:21.688Z",
         "findings": [
+          {
+            "title": "Never Fully Dressed 派对系列快闪登陆曼城两家 Selfridges",
+            "brand": "Never Fully Dressed",
+            "summary": "英国女装品牌 Never Fully Dressed 回到 Selfridges，在曼城特拉福德店和 Exchange Square 店各开了一家快闪，主推节日派对系列，有亮片、羽毛和一衣多穿款，尺码 UK 6–26。",
+            "location": "塞尔福里奇百货 Selfridges Manchester Trafford（特拉福德中心）及 Selfridges Exchange Square（市中心）",
+            "dates": "10月底起（具体结束日期未公布）",
+            "offer": "",
+            "url": "https://www.theindustry.fashion/never-fully-dressed-returns-to-selfridges-with-three-pop-ups/",
+            "source": "TheIndustry.fashion 时尚行业媒体",
+            "interesting": false,
+            "ends": "",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Good Clothes Show 时装市集11月7–8日回归曼城",
+            "brand": "The Good Clothes Show",
+            "summary": "100多个摊位，有独立设计品牌、二手和古着，还有走秀和讲座。本周末举行，需提前订票。",
+            "location": "曼彻斯特中央会展中心 Manchester Central",
+            "dates": "11月7日–8日",
+            "offer": "",
+            "url": "https://www.manchestercentral.co.uk/events/good-clothes-show-2026",
+            "source": "品牌官网",
+            "interesting": true,
+            "ends": "2026-11-08",
+            "firstSeen": "2026-11-01T14:32:50.755Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Blue Rinse 古着清仓按公斤称重特卖（11月14日）",
+            "brand": "Blue Rinse Vintage",
+            "summary": "Blue Rinse 古着清仓，按公斤称重卖，每公斤15英镑，只办一天。",
+            "location": "Sacha's Hotel 曼城市中心",
+            "dates": "11月14日",
+            "offer": "每公斤£15",
+            "url": "https://www.eventbrite.co.uk/e/blue-rinse-vintage-clearance-kilo-sale-15-per-kilo-sachas-hotel-tickets-1980371338985?aff=ebdssbdestsearch",
+            "source": "Eventbrite",
+            "interesting": true,
+            "ends": "2026-11-14",
+            "firstSeen": "2026-11-04T15:48:26.033Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "AZAZIE 婚纱伴娘裙曼城快闪",
+            "brand": "AZAZIE",
+            "summary": "AZAZIE 礼服品牌在曼城办一天快闪，可以现场试穿婚纱和伴娘裙，Eventbrite 上可以订早鸟票。",
+            "location": "曼城市中心 Manchester",
+            "dates": "11月21日",
+            "offer": "",
+            "url": "https://www.eventbrite.co.uk/d/united-kingdom--manchester--50133/sample-sale-clothes/",
+            "source": "Eventbrite",
+            "interesting": true,
+            "ends": "2026-11-21",
+            "firstSeen": "2026-10-31T20:58:42.001Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Lou Lou's 曼城古着市集",
+            "brand": "Lou Lou's Vintage",
+            "summary": "Lou Lou's 古着市集回到曼城，在 Victoria Baths 办一天。",
+            "location": "维多利亚浴场 Victoria Baths（Longsight）",
+            "dates": "11月22日",
+            "offer": "",
+            "url": "https://www.eventbrite.co.uk/d/united-kingdom--manchester--50133/sample-sale-clothes/",
+            "source": "Eventbrite",
+            "interesting": true,
+            "ends": "2026-11-22",
+            "firstSeen": "2026-10-31T20:58:42.001Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "优衣库特拉福德中心新店开业，店内消费抽日本双人游",
+            "brand": "优衣库 UNIQLO",
+            "summary": "优衣库在大曼彻斯特的第二家店已经在特拉福德中心开业，官网显示店里还有开业优惠，同时在卖 UNIQLO × JW ANDERSON 秋冬联名系列。",
+            "location": "特拉福德中心 Trafford Centre",
+            "dates": "已开业，开业优惠进行中",
+            "offer": "开业特惠",
+            "url": "https://www.uniqlo.com/uk/en/spl/manchester-trafford-centre",
+            "source": "品牌官网",
+            "interesting": true,
+            "ends": "",
+            "firstSeen": "2026-10-31T20:58:42.001Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
           {
             "title": "P&Co 样品特卖首次登陆曼城，低至三折",
             "brand": "P&Co",
@@ -511,20 +777,6 @@
             "source": "Visit Manchester",
             "interesting": true,
             "ends": "",
-            "firstSeen": "2026-11-04T15:48:26.033Z",
-            "lastSeen": "2026-11-04T15:48:26.033Z"
-          },
-          {
-            "title": "Blue Rinse 古着清仓按公斤称重特卖（11月14日）",
-            "brand": "Blue Rinse Vintage",
-            "summary": "Blue Rinse 古着清仓特卖，按公斤称重，每公斤15英镑。11月14日（周六）上午11点开始，地点在 Britannia Sachas 酒店。",
-            "location": "Britannia Sachas 酒店 Britannia Sachas Hotel Manchester（市中心）",
-            "dates": "11月14日（周六）11:00起",
-            "offer": "每公斤£15",
-            "url": "https://www.eventbrite.co.uk/e/blue-rinse-vintage-clearance-kilo-sale-15-per-kilo-sachas-hotel-tickets-1980371338985?aff=ebdssbdestsearch",
-            "source": "Eventbrite",
-            "interesting": true,
-            "ends": "2026-11-14",
             "firstSeen": "2026-11-04T15:48:26.033Z",
             "lastSeen": "2026-11-04T15:48:26.033Z"
           },
@@ -554,20 +806,6 @@
             "interesting": false,
             "ends": "",
             "firstSeen": "2026-11-04T15:48:26.033Z",
-            "lastSeen": "2026-11-04T15:48:26.033Z"
-          },
-          {
-            "title": "Good Clothes Show 时装市集11月7–8日回归曼城",
-            "brand": "The Good Clothes Show",
-            "summary": "可持续时尚展会，有100多个摊位，卖独立设计、二手和古着服饰，还有走秀、名人嘉宾和讲座。",
-            "location": "曼彻斯特中央会展中心 Manchester Central",
-            "dates": "11月7日–8日",
-            "offer": "",
-            "url": "https://www.manchestercentral.co.uk/events/good-clothes-show-2026",
-            "source": "Manchester Central 官网",
-            "interesting": false,
-            "ends": "2026-11-08",
-            "firstSeen": "2026-11-01T14:32:50.755Z",
             "lastSeen": "2026-11-04T15:48:26.033Z"
           },
           {
@@ -627,18 +865,6 @@
             "lastSeen": "2026-11-02T17:28:43.411Z"
           },
           {
-            "title": "优衣库特拉福德中心新店开业，店内消费抽日本双人游",
-            "brand": "优衣库 UNIQLO",
-            "summary": "优衣库曼城第二家店已于10月15日在特拉福德中心开业，店内有开业限定优惠价。10月15日至11月8日在店内消费时用App扫会员码，可参加抽奖，奖品是两人日本之旅。",
-            "location": "特拉福德中心 Trafford Centre",
-            "dates": "10月15日开业；抽奖截止11月8日",
-            "offer": "开业限定优惠价＋抽日本双人游",
-            "url": "https://www.uniqlo.com/uk/en/spl/manchester-trafford-centre",
-            "source": "品牌官网",
-            "interesting": true,
-            "firstSeen": "2026-10-31T20:58:42.001Z"
-          },
-          {
             "title": "Archive Is The Future 古着档案时装特卖会",
             "brand": "Archive Is The Future",
             "summary": "自称全英最精选的档案级古着时装特卖与体验活动，来曼城只办一天。需在Eventbrite购票或登记。",
@@ -663,18 +889,6 @@
             "firstSeen": "2026-10-31T20:58:42.001Z"
           },
           {
-            "title": "AZAZIE 婚纱伴娘裙曼城快闪",
-            "brand": "AZAZIE",
-            "summary": "美国婚纱和伴娘裙品牌来曼城办一天快闪，可以现场试穿婚纱和伴娘裙。需在Eventbrite抢早鸟票。",
-            "location": "曼彻斯特市中心皇冠假日酒店 Crowne Plaza Manchester City Centre",
-            "dates": "11月21日（周六）9:00起",
-            "offer": "",
-            "url": "https://www.eventbrite.co.uk/d/united-kingdom--manchester--50133/sample-sale-clothes/",
-            "source": "Eventbrite",
-            "interesting": true,
-            "firstSeen": "2026-10-31T20:58:42.001Z"
-          },
-          {
             "title": "Vinted 二手服饰快闪市集",
             "brand": "Vinted 快闪",
             "summary": "罗奇代尔的一天二手服饰快闪特卖，Eventbrite显示门票快卖完了。",
@@ -684,18 +898,6 @@
             "url": "https://www.eventbrite.co.uk/d/united-kingdom--manchester/patagonia-sample-sale/",
             "source": "Eventbrite",
             "interesting": true,
-            "firstSeen": "2026-10-31T20:58:42.001Z"
-          },
-          {
-            "title": "Lou Lou's 曼城古着市集",
-            "brand": "Lou Lou's Vintage",
-            "summary": "Lou Lou's古着市集在曼城举办，有复古服饰和配饰。具体场地请看活动页。",
-            "location": "曼彻斯特 Manchester",
-            "dates": "11月22日（周日）",
-            "offer": "",
-            "url": "https://www.eventbrite.co.uk/d/united-kingdom--manchester--50133/sample-sale-clothes/",
-            "source": "Eventbrite",
-            "interesting": false,
             "firstSeen": "2026-10-31T20:58:42.001Z"
           },
           {
@@ -713,21 +915,35 @@
         ]
       },
       "Toys & Collectibles": {
-        "fetchedAt": "2026-11-04T15:48:26.033Z",
+        "fetchedAt": "2026-11-05T15:50:21.688Z",
         "findings": [
           {
             "title": "曼城 For the Love of Horror 恐怖主题粉丝展",
             "brand": "For the Love of Horror",
-            "summary": "曼彻斯特多题材恐怖主题粉丝展将于11月14日举行，可以去收周边、找嘉宾签名，适合喜欢收藏的粉丝。",
+            "summary": "恐怖主题的多圈层粉丝展将于11月14日在曼彻斯特举办，通常会有周边、收藏品摊位和嘉宾见面活动。具体场馆和票务信息请查看官网。",
             "location": "曼彻斯特 Manchester",
             "dates": "11月14日",
             "offer": "",
             "url": "https://www.rostercon.com/en/location/united-kingdom/england/manchester-en/events/7471",
-            "source": "RosterCon",
+            "source": "Roster Con",
             "interesting": false,
             "ends": "2026-11-14",
             "firstSeen": "2026-11-01T14:32:50.755Z",
-            "lastSeen": "2026-11-04T15:48:26.033Z"
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Forbidden Planet 黑五活动（11月27日）",
+            "brand": "Forbidden Planet 禁忌星球",
+            "summary": "Forbidden Planet 官网活动日历列出了11月27日的黑色星期五活动，这家连锁店卖手办、盲盒（Smiski、Sonny Angel）、Funko、Loungefly 和卡牌。曼城店在北区 Oldham Street，具体折扣力度官网还没公布。",
+            "location": "北区 Northern Quarter，65 Oldham Street（Forbidden Planet Manchester）",
+            "dates": "11月27日",
+            "offer": "",
+            "url": "https://forbiddenplanet.co.uk/event/black-friday-2026/",
+            "source": "品牌官网",
+            "interesting": false,
+            "ends": "2026-11-27",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
           },
           {
             "title": "奥特林厄姆漫画工作坊：Jeffrey Brown 现场教画",
@@ -748,7 +964,7 @@
     },
     "deal": {
       "Pop Mart": {
-        "fetchedAt": "2026-11-04T15:48:26.033Z",
+        "fetchedAt": "2026-11-05T15:50:21.688Z",
         "findings": [
           {
             "title": "泡泡玛特英国官网特惠专区：精选商品最高七折",
@@ -781,13 +997,27 @@
         ]
       },
       "Food": {
-        "fetchedAt": "2026-11-04T15:48:26.033Z",
+        "fetchedAt": "2026-11-05T15:50:21.688Z",
         "findings": [
           {
+            "title": "TheFork Festival：曼城多家餐厅食物五折",
+            "brand": "TheFork",
+            "summary": "在TheFork订位，曼城多家参与活动的餐厅食物账单打五折，活动10月3日开始，到11月26日结束。",
+            "location": "曼彻斯特市中心 Manchester City Centre等",
+            "dates": "10月3日–11月26日",
+            "offer": "食物五折",
+            "url": "https://www.thefork.co.uk/restaurants/manchester-c666302/thefork-festival-t1657",
+            "source": "品牌官网",
+            "interesting": true,
+            "ends": "2026-11-26",
+            "firstSeen": "2026-10-31T20:58:42.001Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
             "title": "Rudy's披萨Monton新店11月8日开业",
-            "brand": "Rudy's Pizza Napoletana",
-            "summary": "人气那不勒斯披萨Rudy's在索尔福德Monton开了第一家店，11月8日（周日）开业。店里有120个座位，卖经典玛格丽特、辣味Calabrese披萨、意式Spritz和自制提拉米苏。开业优惠暂时没查到。",
-            "location": "索尔福德蒙顿 Monton, Salford",
+            "brand": "Rudy's Pizza",
+            "summary": "Rudy's那不勒斯披萨在Monton开新店，11月8日开业。",
+            "location": "蒙顿 Monton（Eccles附近）",
             "dates": "11月8日开业",
             "offer": "",
             "url": "https://www.manchestersfinest.com/eating-and-drinking/new-restaurants-and-bars-opening-in-november-2026/",
@@ -795,12 +1025,40 @@
             "interesting": true,
             "ends": "2026-11-08",
             "firstSeen": "2026-11-04T15:48:26.033Z",
-            "lastSeen": "2026-11-04T15:48:26.033Z"
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Counter Manchester新店11月9日开业",
+            "brand": "The Counter（主厨Andrew Sheridan）",
+            "summary": "Andrew Sheridan主理的新餐厅11月9日开业，从早餐、午餐一直营业到深夜，菜单有鸭肉薄饼、鮟鱇鱼咖喱、泰式羊肩等分享菜和小盘菜。",
+            "location": "曼彻斯特市中心 Manchester City Centre",
+            "dates": "11月9日开业",
+            "offer": "",
+            "url": "https://confidentials.com/manchester/counter-manchester-to-open-its-doors-next-month-heres-everything-you-need-to-know?id=6ad5f8c5ca229",
+            "source": "Confidentials",
+            "interesting": true,
+            "ends": "2026-11-09",
+            "firstSeen": "2026-10-31T20:58:42.001Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "曼城圣诞市集11月6日开幕，新增美食区Lincoln Square",
+            "brand": "Manchester Christmas Markets",
+            "summary": "曼城圣诞市集11月6日开幕，今年摊位比往年少，新增一个Lincoln Square广场。",
+            "location": "曼彻斯特市中心 Manchester City Centre（Lincoln Square等）",
+            "dates": "11月6日开幕",
+            "offer": "",
+            "url": "https://noodle-magazine.co.uk/manchester-christmas-markets-2026-open-on-6-november-with-fewer-stalls-and-one-new-square/",
+            "source": "Noodle Magazine",
+            "interesting": true,
+            "ends": "",
+            "firstSeen": "2026-11-04T15:48:26.033Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
           },
           {
             "title": "越南餐厅Coco Tang将于11月24日在Spinningfields开业",
             "brand": "Coco Tang",
-            "summary": "河内风格的越南餐厅兼咖啡馆和鸡尾酒吧，有好几层。白天卖法棍三明治（bánh mì）和亚洲风味烘焙，晚上供应经典越南菜和鸡尾酒。可以关注它的Instagram，看有没有试营业优惠。",
+            "summary": "河内风格的越南餐厅兼咖啡馆和鸡尾酒吧，白天卖法棍三明治和亚洲风味烘焙，晚上供应经典越南菜。",
             "location": "斯平宁菲尔兹 Spinningfields",
             "dates": "11月24日开业",
             "offer": "",
@@ -809,21 +1067,77 @@
             "interesting": true,
             "ends": "2026-11-24",
             "firstSeen": "2026-11-04T15:48:26.033Z",
-            "lastSeen": "2026-11-04T15:48:26.033Z"
+            "lastSeen": "2026-11-05T15:50:21.688Z"
           },
           {
-            "title": "曼城圣诞市集11月6日开幕，新增美食区Lincoln Square",
-            "brand": "曼彻斯特圣诞市集 Manchester Christmas Markets",
-            "summary": "市集11月6日到12月22日开放，免费入场，城中心10个点位共210多个摊位。今年新开的Lincoln Square专门做美食和饮品。文章说大部分便宜优惠12月18日就结束了。",
-            "location": "市中心 Lincoln Square（Brazennose Street旁）、阿尔伯特广场 Albert Square、圣安妮广场 St Ann's Square等",
-            "dates": "11月6日–12月22日（Albert Square、Cathedral Gardens开到1月3日）",
-            "offer": "免费入场",
-            "url": "https://noodle-magazine.co.uk/manchester-christmas-markets-2026-open-on-6-november-with-fewer-stalls-and-one-new-square/",
-            "source": "Noodle Magazine",
+            "title": "斯托克波特Hukum高端包间餐厅11月23日开业",
+            "brand": "Hukum（The Royal Nawaab旗下）",
+            "summary": "The Royal Nawaab印度餐厅在斯托克波特金字塔大楼里开的私密高端用餐空间，11月23日开业，套餐每人200镑起，没有折扣，适合特殊场合。",
+            "location": "斯托克波特金字塔 Stockport Pyramid",
+            "dates": "11月23日开业",
+            "offer": "",
+            "url": "https://www.manchestersfinest.com/eating-and-drinking/new-restaurants-and-bars-opening-in-november-2026/",
+            "source": "Manchester's Finest",
             "interesting": true,
-            "ends": "2026-12-22",
-            "firstSeen": "2026-11-04T15:48:26.033Z",
-            "lastSeen": "2026-11-04T15:48:26.033Z"
+            "ends": "2026-11-23",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Sexy Fish周日无限量寿司早午餐48镑",
+            "brand": "Sexy Fish",
+            "summary": "Sexy Fish周日早午餐每人48镑，包括前菜、主菜和甜品，寿司自助不限量，供应时间12点到下午4点。",
+            "location": "Deansgate, 1 The Avenue（Spinningfields）",
+            "dates": "每周日 12:00–16:00",
+            "offer": "每人48镑，寿司无限量",
+            "url": "https://confidentials.com/manchester/manchester-restaurant-bar-deals-1",
+            "source": "Confidentials",
+            "interesting": false,
+            "ends": "",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Riva Blu意大利菜两道菜22.95镑",
+            "brand": "Riva Blu",
+            "summary": "在Corn Exchange的Riva Blu意大利餐厅，参加Club IR会员活动可以22.95镑吃两道菜。",
+            "location": "谷物交易所 Corn Exchange, 11 Corn Exchange M4 3TR",
+            "dates": "11月",
+            "offer": "两道菜22.95镑（Club IR会员）",
+            "url": "https://confidentials.com/manchester/manchester-restaurant-bar-deals-1",
+            "source": "Confidentials",
+            "interesting": false,
+            "ends": "",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Atlas Bar任选3份小食20镑",
+            "brand": "Atlas Bar",
+            "summary": "Deansgate的Atlas Bar可以任选3份小食，共20镑，有可乐饼、蒜香帕玛森鸡柳等；每周特选金酒双份加汤力水7镑。",
+            "location": "迪恩斯盖特 376 Deansgate M3 4LY",
+            "dates": "11月",
+            "offer": "3份小食20镑",
+            "url": "https://confidentials.com/manchester/manchester-restaurant-bar-deals-1",
+            "source": "Confidentials",
+            "interesting": false,
+            "ends": "",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "200 Degrees咖啡Altrincham新店即将开业",
+            "brand": "200 Degrees Coffee",
+            "summary": "诺丁汉起家的精品咖啡连锁店200 Degrees即将在Altrincham的Stamford Quarter开店，有手工烘焙点心和精品咖啡。",
+            "location": "奥特林厄姆 Stamford Quarter, Altrincham",
+            "dates": "即将开业",
+            "offer": "",
+            "url": "https://www.manchestersfinest.com/eating-and-drinking/new-restaurants-and-bars-opening-in-november-2026/",
+            "source": "Manchester's Finest",
+            "interesting": true,
+            "ends": "",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
           },
           {
             "title": "Caesar Club凯撒卷新店在Oxford Road开业",
@@ -852,34 +1166,6 @@
             "ends": "",
             "firstSeen": "2026-11-04T15:48:26.033Z",
             "lastSeen": "2026-11-04T15:48:26.033Z"
-          },
-          {
-            "title": "TheFork Festival：曼城多家餐厅食物五折",
-            "brand": "TheFork",
-            "summary": "TheFork美食节期间，在TheFork上预订曼城参加活动的餐厅，食物可享五折。",
-            "location": "曼彻斯特多家餐厅",
-            "dates": "11月3日起",
-            "offer": "食物五折",
-            "url": "https://www.thefork.co.uk/restaurants/manchester-c666302/thefork-festival-t1657",
-            "source": "品牌官网",
-            "interesting": true,
-            "ends": "",
-            "firstSeen": "2026-10-31T20:58:42.001Z",
-            "lastSeen": "2026-11-04T15:48:26.033Z"
-          },
-          {
-            "title": "Counter Manchester新店11月9日开业",
-            "brand": "Counter Manchester（Open Restaurant Group）",
-            "summary": "主厨Andrew Sheridan主理的新餐厅定于11月9日（周一）在曼城市中心开业，甜品菜单有致敬曼城的Vimto 1908等。",
-            "location": "曼彻斯特市中心 Manchester city centre",
-            "dates": "11月9日开业",
-            "offer": "",
-            "url": "https://confidentials.com/manchester/counter-manchester-to-open-its-doors-next-month-heres-everything-you-need-to-know?id=6ad5f8c5ca229",
-            "source": "Confidentials",
-            "interesting": true,
-            "ends": "",
-            "firstSeen": "2026-10-31T20:58:42.001Z",
-            "lastSeen": "2026-11-03T15:29:55.060Z"
           },
           {
             "title": "Dave's Hot Chicken特拉福德中心新店开业",
@@ -1200,7 +1486,7 @@
         ]
       },
       "Bubble tea & Coffee": {
-        "fetchedAt": "2026-11-04T15:48:26.033Z",
+        "fetchedAt": "2026-11-05T15:50:21.688Z",
         "findings": [
           {
             "title": "越南咖啡馆 Coco Tang 11月24日在 Spinningfields 开业",
@@ -1373,8 +1659,120 @@
         ]
       },
       "Supermarket finds": {
-        "fetchedAt": "2026-11-04T15:48:26.033Z",
+        "fetchedAt": "2026-11-05T15:50:21.688Z",
         "findings": [
+          {
+            "title": "Sainsbury's Mai Thai茉莉香米10kg Nectar价£9",
+            "brand": "Sainsbury's 塞恩斯伯里",
+            "summary": "10kg装Mai Thai AAA茉莉香米用Nectar卡只要£9，折合每公斤90p，囤米划算。Nectar价到11月23日，网购送货或Click & Collect都能用。",
+            "location": "曼城各Sainsbury's门店/网购",
+            "dates": "即日起至11月23日",
+            "offer": "Nectar会员价£9",
+            "url": "https://www.hotukdeals.com/deals/mai-thai-aaa-jasmine-fragrant-rice-10kg-nectar-price-5023857",
+            "source": "hotukdeals",
+            "interesting": false,
+            "ends": "2026-11-23",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Sainsbury's蔬菜Nectar半价：胡萝卜34p、土豆2kg 90p、西兰苔80p",
+            "brand": "Sainsbury's 塞恩斯伯里",
+            "summary": "Nectar价蔬菜半价：1kg胡萝卜34p，Maris Piper土豆2kg 90p，芜菁甘蓝31p，白菜44p，西兰苔200g 80p。",
+            "location": "曼城各Sainsbury's门店",
+            "dates": "11月12日–17日",
+            "offer": "半价（Nectar价）",
+            "url": "https://www.hotukdeals.com/deals/sainsburys-1kg-carrots-34p-maris-piper-potatoes-2kg-90p-swede-31p-white-cabbage-44p-tenderstem-broccoli-200g-80p-5023450",
+            "source": "hotukdeals",
+            "interesting": true,
+            "ends": "2026-11-17",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Lidl本周精选：蘑菇和石榴最高省54%",
+            "brand": "Lidl 利德",
+            "summary": "Lidl从11月5日（周四）起的Pick of the Week是蘑菇和石榴，最高省54%。同一周还有XXL装盐味椒盐卷饼棒、室内绿植和圣诞LED灯串上架。",
+            "location": "曼城各Lidl门店",
+            "dates": "11月5日起（本周传单到11月11日）",
+            "offer": "最高省54%",
+            "url": "https://www.lidl.co.uk/c/store/lidl-plus-offers-current/a10053222",
+            "source": "品牌官网",
+            "interesting": true,
+            "ends": "2026-11-11",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Häagen-Dazs哈根达斯开心果奶油限定款Nectar价£3.95",
+            "brand": "Häagen-Dazs 哈根达斯 / Sainsbury's",
+            "summary": "限定款开心果奶油冰淇淋347g，用Nectar卡£3.95。限定口味卖完可能就没有了，喜欢开心果的可以早点买。",
+            "location": "曼城各Sainsbury's门店",
+            "dates": "至11月16日",
+            "offer": "Nectar会员价£3.95",
+            "url": "https://www.hotukdeals.com/deals/haagen-dazs-pistachio-cream-ice-cream-limited-edition-347g-nectar-price-5023846",
+            "source": "hotukdeals",
+            "interesting": true,
+            "ends": "2026-11-16",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Old Jamaica姜汁汽水2L Nectar价比半价还低",
+            "brand": "Old Jamaica / Sainsbury's",
+            "summary": "Old Jamaica姜汁汽水2L原味和低糖款都参加，Nectar价比半价还便宜。",
+            "location": "曼城各Sainsbury's门店",
+            "dates": "11月4日–24日",
+            "offer": "比半价更低（Nectar价）",
+            "url": "https://www.hotukdeals.com/deals/old-jamaica-ginger-beer-regular-or-light-2l-nectar-price-5019547",
+            "source": "hotukdeals",
+            "interesting": true,
+            "ends": "2026-11-24",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Tesco圣诞巧克力Clubcard半价：Lily O'Briens £5、Smarties礼盒95p",
+            "brand": "Tesco 乐购",
+            "summary": "Lily O'Briens圣诞巧克力礼盒248g用Clubcard半价£5；Smarties & Milkybar巧克力礼盒从£2降到95p。两款都到12月27日，可以买来送礼。",
+            "location": "曼城各Tesco门店",
+            "dates": "至12月27日",
+            "offer": "半价（Clubcard价）",
+            "url": "https://www.hotukdeals.com/deals",
+            "source": "hotukdeals",
+            "interesting": true,
+            "ends": "2026-12-27",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Sainsbury's Nectar价：KTC鹰嘴豆、番茄罐头",
+            "brand": "Sainsbury's 塞恩斯伯里 / KTC",
+            "summary": "KTC鹰嘴豆和番茄碎罐头400g有Nectar优惠价，还有几天就结束。",
+            "location": "曼城各Sainsbury's门店",
+            "dates": "11月8日截止",
+            "offer": "Nectar会员价",
+            "url": "https://www.hotukdeals.com/deals/ktc-chick-peas-400g-ktc-chopped-tomatoes-400g-nectar-price-5010017",
+            "source": "hotukdeals",
+            "interesting": false,
+            "ends": "2026-11-08",
+            "firstSeen": "2026-11-01T14:32:50.755Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Tesco Finest肉馅派6个装Clubcard会员价",
+            "brand": "Tesco 乐购",
+            "summary": "Tesco Finest全黄油肉馅派6个装，用Clubcard半价，优惠一直到明年1月1日。",
+            "location": "曼城各Tesco门店",
+            "dates": "10月26日–1月1日",
+            "offer": "半价（Clubcard价）",
+            "url": "https://www.hotukdeals.com/deals/tesco-finest-mince-pies-6-pack-clubcard-price-5013281",
+            "source": "hotukdeals",
+            "interesting": true,
+            "ends": "2027-01-01",
+            "firstSeen": "2026-11-01T14:32:50.755Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
           {
             "title": "Sainsbury's整只羊腿Nectar半价£7.85/kg",
             "brand": "Sainsbury's",
@@ -1432,20 +1830,6 @@
             "lastSeen": "2026-11-04T15:48:26.033Z"
           },
           {
-            "title": "Lidl Plus本周优惠：苹果、南瓜最高省55%",
-            "brand": "Lidl 历德",
-            "summary": "本周Lidl Plus App专享价，官网称最多可省£76，11月4日（周三）结束，最后两天。",
-            "location": "曼城各Lidl门店 Lidl stores, Greater Manchester",
-            "dates": "10月29日–11月4日",
-            "offer": "Lidl Plus会员价，最高省55%",
-            "url": "https://www.lidl.co.uk/c/store/lidl-plus-offers-current/a10053222",
-            "source": "品牌官网",
-            "interesting": true,
-            "ends": "2026-11-04",
-            "firstSeen": "2026-10-31T20:58:42.001Z",
-            "lastSeen": "2026-11-03T15:29:55.060Z"
-          },
-          {
             "title": "Aldi下周Specialbuys：圣诞马克杯碗、铸铁锅",
             "brand": "Aldi 奥乐齐",
             "summary": "Aldi Specialbuys新一期11月5日上架，主推圣诞马克杯和碗，每个£5.99，数量有限，卖完就没了。",
@@ -1457,34 +1841,6 @@
             "interesting": true,
             "ends": "",
             "firstSeen": "2026-10-31T20:58:42.001Z",
-            "lastSeen": "2026-11-03T15:29:55.060Z"
-          },
-          {
-            "title": "Sainsbury's Nectar价：KTC鹰嘴豆、番茄罐头",
-            "brand": "Sainsbury's 塞恩斯伯里",
-            "summary": "KTC鹰嘴豆400g和番茄碎罐头400g用Nectar卡有特价，囤货方便，11月8日结束。",
-            "location": "曼城各Sainsbury's门店 Sainsbury's, Greater Manchester",
-            "dates": "11月8日截止",
-            "offer": "Nectar会员价",
-            "url": "https://www.hotukdeals.com/deals/ktc-chick-peas-400g-ktc-chopped-tomatoes-400g-nectar-price-5010017",
-            "source": "hotukdeals",
-            "interesting": false,
-            "ends": "2026-11-08",
-            "firstSeen": "2026-11-01T14:32:50.755Z",
-            "lastSeen": "2026-11-03T15:29:55.060Z"
-          },
-          {
-            "title": "Tesco Finest肉馅派6个装Clubcard会员价",
-            "brand": "Tesco 乐购",
-            "summary": "Tesco Finest全黄油肉馅派6个装（加了白兰地和波特酒）用Clubcard半价，一直到明年1月1日。",
-            "location": "曼城各Tesco门店 Tesco, Greater Manchester",
-            "dates": "10月26日–1月1日",
-            "offer": "Clubcard半价",
-            "url": "https://www.hotukdeals.com/deals/tesco-finest-mince-pies-6-pack-clubcard-price-5013281",
-            "source": "hotukdeals",
-            "interesting": true,
-            "ends": "2027-01-01",
-            "firstSeen": "2026-11-01T14:32:50.755Z",
             "lastSeen": "2026-11-03T15:29:55.060Z"
           },
           {
@@ -1500,20 +1856,6 @@
             "ends": "",
             "firstSeen": "2026-10-31T20:58:42.001Z",
             "lastSeen": "2026-11-03T15:29:55.060Z"
-          },
-          {
-            "title": "Lidl Plus满£5减£5（部分门店/账户）",
-            "brand": "Lidl 利德",
-            "summary": "Lidl Plus App里部分账户收到券：单笔消费满£5立减£5，只能在指定门店用。打开App看看自己有没有，以及适用哪家店。",
-            "location": "大曼彻斯特各Lidl门店 Greater Manchester（以App显示为准）",
-            "dates": "10月29日–11月4日",
-            "offer": "满£5减£5",
-            "url": "https://www.hotukdeals.com/deals/ps5-off-when-you-spend-ps5-5017396",
-            "source": "hotukdeals",
-            "interesting": true,
-            "ends": "2026-11-04",
-            "firstSeen": "2026-11-02T17:28:43.411Z",
-            "lastSeen": "2026-11-02T17:28:43.411Z"
           },
           {
             "title": "Tesco Veetee茉莉香米5kg半价£4",
@@ -1798,13 +2140,27 @@
         ]
       },
       "Beauty": {
-        "fetchedAt": "2026-11-04T15:48:26.033Z",
+        "fetchedAt": "2026-11-05T15:50:21.688Z",
         "findings": [
+          {
+            "title": "Oriflame圣诞美妆快闪店，在特拉福德中心",
+            "brand": "Oriflame 欧瑞莲",
+            "summary": "瑞典美妆品牌Oriflame在特拉福德中心办沉浸式圣诞美妆快闪，11月14日–16日，只有三天。",
+            "location": "特拉福德中心 Trafford Centre",
+            "dates": "11月14日–16日",
+            "offer": "",
+            "url": "https://www.visitmanchester.com/event/oriflame-festive-beauty-pop-up/107351101/",
+            "source": "Visit Manchester",
+            "interesting": true,
+            "ends": "2026-11-16",
+            "firstSeen": "2026-10-31T20:58:42.001Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
           {
             "title": "Selfridges特拉福德店节日美妆工作坊，11月18–29日",
             "brand": "Selfridges 塞尔福里奇",
-            "summary": "Selfridges特拉福德店将举办节日美妆工作坊系列，Chanel、Huda Beauty、YSL Beauty等品牌带来节日大师课、香水体验和送礼推荐，需要在官网预约。",
-            "location": "特拉福德中心 Selfridges Manchester Trafford",
+            "summary": "Chanel、Huda Beauty、YSL Beauty等品牌在Selfridges特拉福德店办节日彩妆大师课、香水体验和送礼推荐，需要在官网预约。",
+            "location": "Selfridges特拉福德店 Selfridges Manchester Trafford（Trafford Centre）",
             "dates": "11月18日–29日",
             "offer": "",
             "url": "https://www.selfridges.com/GB/en/stores/events/manchester-trafford-events/",
@@ -1812,7 +2168,77 @@
             "interesting": false,
             "ends": "2026-11-29",
             "firstSeen": "2026-11-03T15:29:55.060Z",
-            "lastSeen": "2026-11-03T15:29:55.060Z"
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Sephora黑五提前开跑：指定品牌最高八折＋多款满赠",
+            "brand": "丝芙兰 Sephora",
+            "summary": "11月9日–15日Sephora先上第一波黑五优惠：Urban Decay、Fenty Skin、Kiehl's八折，Sephora自有品牌和Natasha Denona部分商品85折。Gisou、Kérastase、Tatcha、Summer Fridays、Kayali等品牌另有满赠。11月29日用博主码REALLYREEBFSPH可再减5%。来源没说门店能不能用，网上肯定能买，曼城门店在特拉福德中心。",
+            "location": "特拉福德中心 Trafford Centre（Sephora门店）",
+            "dates": "11月9日–15日",
+            "offer": "最高八折＋满赠",
+            "url": "https://reallyree.com/black-friday-beauty-offers-page/",
+            "source": "美妆博客 Really Ree",
+            "interesting": false,
+            "ends": "2026-11-15",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Boots满£50送护肤礼盒，美发满£55送赠品",
+            "brand": "Boots 博姿",
+            "summary": "在Boots买满£50送一个护肤礼盒，11月28日截止；美发产品买满£55另送赠品。",
+            "location": "",
+            "dates": "11月28日截止",
+            "offer": "满£50送护肤礼盒",
+            "url": "https://www.whowhatwear.com/promo-codes/boots",
+            "source": "Who What We Wear 优惠码页面",
+            "interesting": true,
+            "ends": "2026-11-28",
+            "firstSeen": "2026-10-31T20:58:42.001Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Boots每周二£10特价日",
+            "brand": "Boots 博姿",
+            "summary": "Boots每周二都有特价日，部分护肤和美妆商品降到£10，在官网“Offers”栏目里找。",
+            "location": "",
+            "dates": "每周二",
+            "offer": "部分商品£10",
+            "url": "https://www.marieclaire.co.uk/vouchers/boots.com",
+            "source": "Marie Claire 优惠码页面",
+            "interesting": false,
+            "ends": "",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Boots学生额外九折",
+            "brand": "Boots 博姿",
+            "summary": "Boots会员卡（Advantage Card，免费办）绑定学生身份后，购物打九折。",
+            "location": "",
+            "dates": "",
+            "offer": "学生九折",
+            "url": "https://www.marieclaire.co.uk/vouchers/boots.com",
+            "source": "Marie Claire 优惠码页面",
+            "interesting": false,
+            "ends": "",
+            "firstSeen": "2026-11-01T14:32:50.755Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Space NK折扣码85折（11月9日截止）",
+            "brand": "Space NK",
+            "summary": "折扣网站上的Space NK折扣码85折，11月9日截止。加入Space NK会员NDULGE还能攒积分换奖励。门店在特拉福德中心，有免费护肤咨询。",
+            "location": "特拉福德中心 Trafford Centre（Lower Peel Ave）",
+            "dates": "11月9日截止",
+            "offer": "85折",
+            "url": "https://www.marieclaire.co.uk/vouchers/spacenk.com",
+            "source": "Marie Claire 优惠码页面",
+            "interesting": false,
+            "ends": "2026-11-09",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
           },
           {
             "title": "Superdrug黑五活动11月4日开始，提前优惠最低半价",
@@ -1825,20 +2251,6 @@
             "source": "品牌官网",
             "interesting": true,
             "ends": "",
-            "firstSeen": "2026-10-31T20:58:42.001Z",
-            "lastSeen": "2026-11-03T15:29:55.060Z"
-          },
-          {
-            "title": "Oriflame圣诞美妆快闪店，在特拉福德中心",
-            "brand": "Oriflame 欧瑞莲",
-            "summary": "瑞典美妆品牌Oriflame在特拉福德中心开圣诞主题沉浸式美妆快闪店。",
-            "location": "特拉福德中心 Trafford Centre",
-            "dates": "11月14日–16日",
-            "offer": "",
-            "url": "https://www.visitmanchester.com/event/oriflame-festive-beauty-pop-up/107351101/",
-            "source": "Visit Manchester",
-            "interesting": true,
-            "ends": "2026-11-16",
             "firstSeen": "2026-10-31T20:58:42.001Z",
             "lastSeen": "2026-11-03T15:29:55.060Z"
           },
@@ -1913,20 +2325,6 @@
             "lastSeen": "2026-11-03T15:29:55.060Z"
           },
           {
-            "title": "Boots学生额外九折",
-            "brand": "Boots",
-            "summary": "学生在Boots购物可额外打九折。",
-            "location": "",
-            "dates": "",
-            "offer": "九折",
-            "url": "https://www.marieclaire.co.uk/vouchers/boots.com",
-            "source": "折扣网站",
-            "interesting": false,
-            "ends": "",
-            "firstSeen": "2026-11-01T14:32:50.755Z",
-            "lastSeen": "2026-11-03T15:29:55.060Z"
-          },
-          {
             "title": "Superdrug买指定香水送赠品：Versace送旅行袋、Kylie送托盘",
             "brand": "Superdrug",
             "summary": "Superdrug香水区现在买指定Versace香水送Versace旅行袋（送完为止），买指定Kylie Jenner香水送托盘。另外Ted Baker Floralicious系列任选2瓶£30，这个11月3日截止。",
@@ -1980,20 +2378,6 @@
             "interesting": false,
             "ends": "2026-11-11",
             "firstSeen": "2026-11-01T14:32:50.755Z",
-            "lastSeen": "2026-11-01T14:32:50.755Z"
-          },
-          {
-            "title": "Boots满£50送护肤礼盒，美发满£55送赠品",
-            "brand": "Boots",
-            "summary": "Boots买满£50送一个护肤礼盒（11月28日截止）；高端美发产品买满£55送赠品（11月7日截止）。",
-            "location": "",
-            "dates": "护肤礼盒11月28日截止；美发赠品11月7日截止",
-            "offer": "满额送礼",
-            "url": "https://www.whowhatwear.com/promo-codes/boots",
-            "source": "Who What Wear 优惠码页面",
-            "interesting": true,
-            "ends": "2026-11-28",
-            "firstSeen": "2026-10-31T20:58:42.001Z",
             "lastSeen": "2026-11-01T14:32:50.755Z"
           },
           {
@@ -2065,8 +2449,92 @@
         ]
       },
       "Fashion": {
-        "fetchedAt": "2026-11-04T15:48:26.033Z",
+        "fetchedAt": "2026-11-05T15:50:21.688Z",
         "findings": [
+          {
+            "title": "曼城 x PUMA 全新旗舰店今日开业（Medlock Square）",
+            "brand": "曼城俱乐部 Manchester City × 彪马 PUMA",
+            "summary": "曼城与PUMA及零售伙伴Stichd在东曼彻斯特Medlock Square开设全新三层旗舰店，面积超过2.1万平方英尺，11月5日开业。目前没有找到开业折扣或赠品的信息。",
+            "location": "东曼彻斯特 Medlock Square（Etihad 球场附近）",
+            "dates": "11月5日开业",
+            "offer": "",
+            "url": "https://www.retailgazette.co.uk/blog/2026/11/puma-manchester-city-flagship/",
+            "source": "Retail Gazette 零售新闻",
+            "interesting": true,
+            "ends": "",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Archive Is The Future 古着/中古时装特卖会（11月8日）",
+            "brand": "Archive Is The Future",
+            "summary": "古着和中古设计师时装特卖活动，11月8日在曼彻斯特举行，需要在Eventbrite领票。",
+            "location": "曼彻斯特 Manchester",
+            "dates": "11月8日",
+            "offer": "",
+            "url": "https://www.eventbrite.co.uk/e/archive-is-the-future-archive-fashion-sale-experience-manchester-tickets-2003188672243",
+            "source": "Eventbrite",
+            "interesting": true,
+            "ends": "2026-11-08",
+            "firstSeen": "2026-10-31T20:58:42.001Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Blue Rinse 古着清仓按斤卖 £15/公斤（11月14日）",
+            "brand": "Blue Rinse Vintage",
+            "summary": "Blue Rinse古着清仓公斤特卖，每公斤£15，在北区Sacha's Hotel举行。",
+            "location": "北区 Sacha's Hotel（Oldham Street, Northern Quarter）",
+            "dates": "11月14日",
+            "offer": "£15/公斤",
+            "url": "https://www.eventbrite.co.uk/e/blue-rinse-vintage-clearance-kilo-sale-15-per-kilo-sachas-hotel-tickets-1980371338985",
+            "source": "Eventbrite",
+            "interesting": true,
+            "ends": "2026-11-14",
+            "firstSeen": "2026-11-01T14:32:50.755Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Azazie 婚纱/伴娘裙曼城快闪试穿（11月21日）",
+            "brand": "Azazie",
+            "summary": "Azazie婚纱和伴娘裙在曼城开快闪店，可以现场试穿，现在开放早鸟票。",
+            "location": "曼彻斯特 Manchester",
+            "dates": "11月21日",
+            "offer": "",
+            "url": "https://www.eventbrite.co.uk/d/united-kingdom--manchester--50133/sample-sale/",
+            "source": "Eventbrite",
+            "interesting": true,
+            "ends": "2026-11-22",
+            "firstSeen": "2026-10-31T20:58:42.001Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "Goldsmith Vintage 古着公斤特卖 £20/公斤（11月21日）",
+            "brand": "Goldsmith Vintage",
+            "summary": "Goldsmith Vintage曼城古着公斤特卖，每公斤£20。",
+            "location": "北区 Sacha's Hotel（Northern Quarter）",
+            "dates": "11月21日",
+            "offer": "£20/公斤",
+            "url": "https://www.eventbrite.com/e/goldsmith-vintage-manchester-kilosale-20-per-kg-tickets-2003453123223",
+            "source": "Eventbrite",
+            "interesting": true,
+            "ends": "2026-11-21",
+            "firstSeen": "2026-11-01T14:32:50.755Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
+          {
+            "title": "曼城古着市集＋公斤特卖（11月28日）",
+            "brand": "Manchester's BEST Vintage Thrift Event & Kilo Sale",
+            "summary": "11月28日曼城古着二手市集，同时有公斤特卖。",
+            "location": "曼彻斯特 Manchester",
+            "dates": "11月28日",
+            "offer": "按公斤计价",
+            "url": "https://www.eventbrite.com/e/28th-november-manchesters-best-vintage-thrift-event-kilo-sale-tickets-2003598110885",
+            "source": "Eventbrite",
+            "interesting": true,
+            "ends": "2026-11-28",
+            "firstSeen": "2026-11-01T14:32:50.755Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
           {
             "title": "优衣库 Trafford Centre 新店开业限时优惠+会员抽日本游",
             "brand": "优衣库 UNIQLO",
@@ -2078,76 +2546,6 @@
             "source": "品牌官网",
             "interesting": true,
             "ends": "2026-11-08",
-            "firstSeen": "2026-11-01T14:32:50.755Z",
-            "lastSeen": "2026-11-04T15:48:26.033Z"
-          },
-          {
-            "title": "Archive Is The Future 古着/中古时装特卖会（11月8日）",
-            "brand": "Archive Is The Future (Known Source)",
-            "summary": "Archive 中古时装特卖会加体验活动，11月8日（周日）在维多利亚浴场举办，只有一天。",
-            "location": "维多利亚浴场 Victoria Baths",
-            "dates": "11月8日",
-            "offer": "",
-            "url": "https://www.eventbrite.co.uk/e/archive-is-the-future-archive-fashion-sale-experience-manchester-tickets-2003188672243",
-            "source": "Eventbrite",
-            "interesting": true,
-            "ends": "2026-11-08",
-            "firstSeen": "2026-10-31T20:58:42.001Z",
-            "lastSeen": "2026-11-04T15:48:26.033Z"
-          },
-          {
-            "title": "Blue Rinse 古着清仓按斤卖 £15/公斤（11月14日）",
-            "brand": "Blue Rinse",
-            "summary": "Blue Rinse 古着清仓公斤特卖，每公斤15英镑，在 Sachas Hotel 举办。",
-            "location": "Sachas Hotel（曼城市中心）",
-            "dates": "11月14日",
-            "offer": "£15/公斤",
-            "url": "https://www.eventbrite.co.uk/e/blue-rinse-vintage-clearance-kilo-sale-15-per-kilo-sachas-hotel-tickets-1980371338985",
-            "source": "Eventbrite",
-            "interesting": true,
-            "ends": "2026-11-14",
-            "firstSeen": "2026-11-01T14:32:50.755Z",
-            "lastSeen": "2026-11-04T15:48:26.033Z"
-          },
-          {
-            "title": "Azazie 婚纱/伴娘裙曼城快闪试穿（11月21日）",
-            "brand": "Azazie",
-            "summary": "Azazie 11月21日在曼城办快闪活动，可以现场试穿婚纱和伴娘裙，现在有早鸟票。",
-            "location": "曼彻斯特 Manchester",
-            "dates": "11月21日",
-            "offer": "早鸟票",
-            "url": "https://www.eventbrite.co.uk/d/united-kingdom--manchester--50133/sample-sale/",
-            "source": "Eventbrite",
-            "interesting": false,
-            "ends": "2026-11-21",
-            "firstSeen": "2026-10-31T20:58:42.001Z",
-            "lastSeen": "2026-11-04T15:48:26.033Z"
-          },
-          {
-            "title": "Goldsmith Vintage 古着公斤特卖 £20/公斤（11月21日）",
-            "brand": "Goldsmith Vintage",
-            "summary": "Goldsmith Vintage 曼城古着公斤特卖，每公斤20英镑。",
-            "location": "曼彻斯特 Manchester",
-            "dates": "11月21日",
-            "offer": "£20/公斤",
-            "url": "https://www.eventbrite.com/e/goldsmith-vintage-manchester-kilosale-20-per-kg-tickets-2003453123223",
-            "source": "Eventbrite",
-            "interesting": true,
-            "ends": "2026-11-21",
-            "firstSeen": "2026-11-01T14:32:50.755Z",
-            "lastSeen": "2026-11-04T15:48:26.033Z"
-          },
-          {
-            "title": "曼城古着市集＋公斤特卖（11月28日）",
-            "brand": "Manchester's Best Vintage Thrift Event",
-            "summary": "曼城古着二手市集，同时有公斤特卖，11月28日举办。",
-            "location": "曼彻斯特 Manchester",
-            "dates": "11月28日",
-            "offer": "按公斤计价",
-            "url": "https://www.eventbrite.com/e/28th-november-manchesters-best-vintage-thrift-event-kilo-sale-tickets-2003598110885",
-            "source": "Eventbrite",
-            "interesting": true,
-            "ends": "2026-11-28",
             "firstSeen": "2026-11-01T14:32:50.755Z",
             "lastSeen": "2026-11-04T15:48:26.033Z"
           },
@@ -2168,8 +2566,22 @@
         ]
       },
       "Toys & Collectibles": {
-        "fetchedAt": "2026-11-04T15:48:26.033Z",
+        "fetchedAt": "2026-11-05T15:50:21.688Z",
         "findings": [
+          {
+            "title": "Forbidden Planet黑五活动（11月27日）",
+            "brand": "禁忌星球 Forbidden Planet",
+            "summary": "Forbidden Planet官网活动页已上线“Black Friday 2026”，定于11月27日，曼城店在北区Oldham Street，卖盲盒、Loungefly、Funko、卡牌和手办。具体折扣官网还没公布，可以临近时再看一下。",
+            "location": "北区 Northern Quarter，Forbidden Planet曼城店（65 Oldham Street）",
+            "dates": "11月27日",
+            "offer": "",
+            "url": "https://forbiddenplanet.co.uk/event/black-friday-2026/",
+            "source": "品牌官网",
+            "interesting": false,
+            "ends": "2026-11-27",
+            "firstSeen": "2026-11-05T15:50:21.688Z",
+            "lastSeen": "2026-11-05T15:50:21.688Z"
+          },
           {
             "title": "名创优品Miniso英国官网特卖：潮玩IP周边最高五折",
             "brand": "名创优品 Miniso UK",
